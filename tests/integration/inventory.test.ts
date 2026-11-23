@@ -28,8 +28,8 @@ describe('seeded catalogue', () => {
 
   it('keeps the ledger consistent: every variant stock equals the sum of its movements', async () => {
     const rows = await db.execute<{ mismatches: number }>(sql`
-      select count(*)::int as mismatches from alkham.product_variants v
-      left join (select variant_id, sum(delta)::int as total from alkham.inventory_transactions group by variant_id) l on l.variant_id = v.id
+      select count(*)::int as mismatches from sevshee.product_variants v
+      left join (select variant_id, sum(delta)::int as total from sevshee.inventory_transactions group by variant_id) l on l.variant_id = v.id
       where v.stock <> coalesce(l.total, 0)`)
     expect(rows.rows[0].mismatches).toBe(0)
   })

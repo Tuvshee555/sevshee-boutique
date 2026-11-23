@@ -93,6 +93,8 @@ export const TAG_LABELS: Record<string, string> = {
   layering: 'Давхарлахад',
   oversized: 'Чөлөөтэй хэлбэр',
   essential: 'Суурь хувцас',
+  evening: 'Үдшийн гоёл',
+  weekend: 'Амралтын өдөр',
   cashmere: 'Ноолуур',
   wool: 'Ноос',
   cotton: 'Хөвөн',

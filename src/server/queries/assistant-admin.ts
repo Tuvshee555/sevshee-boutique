@@ -92,14 +92,14 @@ export async function listConversations(actor: Actor, f: { filter?: Conversation
   if (f.filter === 'attention') filters.push(or(eq(t.chatConversations.needsHuman, true), sql`${t.chatConversations.unreadForStaff} > 0`))
   if (f.filter === 'taken') filters.push(eq(t.chatConversations.paused, true))
   if (f.filter === 'samples') filters.push(eq(t.chatConversations.channel, 'sample'))
-  if (f.filter === 'orders') filters.push(sql`exists (select 1 from alkham.orders o where o.conversation_id = ${t.chatConversations.id})`)
+  if (f.filter === 'orders') filters.push(sql`exists (select 1 from sevshee.orders o where o.conversation_id = ${t.chatConversations.id})`)
   if (f.q) {
     const like = `%${escapeLike(f.q)}%`
     filters.push(
       or(
         ilike(t.chatConversations.customerName, like),
         ilike(t.chatConversations.customerPhone, `%${escapeLike(f.q.replace(/\D/g, '') || f.q)}%`),
-        sql`exists (select 1 from alkham.chat_messages m where m.conversation_id = ${t.chatConversations.id} and m.text ilike ${like})`,
+        sql`exists (select 1 from sevshee.chat_messages m where m.conversation_id = ${t.chatConversations.id} and m.text ilike ${like})`,
       ),
     )
   }
@@ -119,9 +119,9 @@ export async function listConversations(actor: Actor, f: { filter?: Conversation
         unreadForStaff: t.chatConversations.unreadForStaff,
         lastMessageAt: t.chatConversations.lastMessageAt,
         createdAt: t.chatConversations.createdAt,
-        lastText: sql<string | null>`(select m.text from alkham.chat_messages m where m.conversation_id = ${t.chatConversations.id} order by m.created_at desc limit 1)`,
-        lastRole: sql<string | null>`(select m.role from alkham.chat_messages m where m.conversation_id = ${t.chatConversations.id} order by m.created_at desc limit 1)`,
-        orders: sql<number>`(select count(*) from alkham.orders o where o.conversation_id = ${t.chatConversations.id})::int`,
+        lastText: sql<string | null>`(select m.text from sevshee.chat_messages m where m.conversation_id = ${t.chatConversations.id} order by m.created_at desc limit 1)`,
+        lastRole: sql<string | null>`(select m.role from sevshee.chat_messages m where m.conversation_id = ${t.chatConversations.id} order by m.created_at desc limit 1)`,
+        orders: sql<number>`(select count(*) from sevshee.orders o where o.conversation_id = ${t.chatConversations.id})::int`,
       })
       .from(t.chatConversations)
       .where(where)
@@ -241,7 +241,7 @@ export async function listInquiries(actor: Actor, f: { days?: number; kind?: Inq
       metadata: t.chatMessages.metadata,
       channel: t.chatConversations.channel,
       // The customer message this reply answered: the latest one before it.
-      question: sql<string | null>`(select c.text from alkham.chat_messages c where c.conversation_id = ${t.chatMessages.conversationId} and c.role = 'customer' and c.created_at <= ${t.chatMessages.createdAt} order by c.created_at desc limit 1)`,
+      question: sql<string | null>`(select c.text from sevshee.chat_messages c where c.conversation_id = ${t.chatMessages.conversationId} and c.role = 'customer' and c.created_at <= ${t.chatMessages.createdAt} order by c.created_at desc limit 1)`,
     })
     .from(t.chatMessages)
     .innerJoin(t.chatConversations, eq(t.chatConversations.id, t.chatMessages.conversationId))

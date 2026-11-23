@@ -15,7 +15,7 @@ import { addToCartAction } from '@/server/actions/store'
 
 // The conversation id is not a secret: the conversation belongs to this
 // browser's httpOnly visitor cookie, which the server checks on every request.
-const STORAGE_KEY = 'alkham.assistant.conversation'
+const STORAGE_KEY = 'sevshee.assistant.conversation'
 const STARTERS = STORE_VOICE.starters
 /** While a person is involved the widget checks for replies: 5 s, slowing to 30 s, for at most 10 minutes. */
 const POLL_START_MS = 5_000
@@ -135,7 +135,7 @@ export function ChatThread({
     <div ref={listRef} className="flex-1 space-y-4 overflow-y-auto px-4 py-4 text-[13.5px] leading-relaxed" aria-live="polite">
       {messages.length === 0 && (
         <>
-          <div className="max-w-[92%] bg-white px-3.5 py-3">Сайн байна уу! Гутал, өнгө, размер, үлдэгдэл, хүргэлт, буцаалтын талаар асуугаарай. Би дэлгүүрийн сангаас шалгаж хариулна.</div>
+          <div className="max-w-[92%] bg-white px-3.5 py-3">Сайн байна уу! Бараа, өнгө, хэмжээ, үлдэгдэл, хүргэлт, буцаалтын талаар асуугаарай. Би дэлгүүрийн сангаас шалгаж хариулна.</div>
           <div className="flex flex-wrap gap-2">
             {STARTERS.map((s) => (
               <button key={s} type="button" onClick={() => onSend(s)} className="border border-stone-300 bg-paper px-3 py-1.5 text-left text-[12.5px] hover:border-ink">
@@ -350,7 +350,7 @@ export function AssistantWidget({ storeName }: { storeName: string }) {
         <button
           type="button"
           onClick={() => setOpen(true)}
-          className="fixed bottom-5 right-5 z-50 flex items-center gap-2 bg-accent px-4 py-3 text-[13.5px] font-semibold text-white shadow-lg transition hover:bg-accent-600 sm:bottom-6 sm:right-6"
+          className="fixed bottom-5 right-5 z-50 flex items-center gap-2 rounded-full bg-accent px-5 py-3 text-[13.5px] font-semibold text-white shadow-lg transition hover:bg-accent-600 sm:bottom-6 sm:right-6"
           aria-label="Худалдааны туслах нээх"
         >
           <MessageCircle className="h-4 w-4" strokeWidth={1.6} /> Туслах

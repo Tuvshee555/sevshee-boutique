@@ -1,29 +1,29 @@
 # Brand
 
-ALKHAM is a fictional shoe shop created for this demonstration. It is not a registered company
-and not an Ursgal Digital client.
+SEVSHEE is a fictional women's boutique created for this demonstration. It is not a registered
+company and not an Ursgal Digital client.
 
 ## Name
 
-**ALKHAM** (алхам) means "a step". Two syllables, the same in Latin and Cyrillic, short enough for
-a domain and a handle, and it says what the shop sells without saying "shoe". Tagline:
-«Алхам бүрт тохирно.» ("Fits every step."). To rename, edit `src/lib/brand.ts` and the store
-name under Admin → Тохиргоо.
+**SEVSHEE** (сэвшээ) is a light, cool breeze. Two syllables, easy in Latin and Cyrillic, and it
+carries the feeling the shop sells: light clothes, easy choices. Tagline: «Сэвшээ салхи шиг
+хөнгөн.» ("Light as a breeze."). To rename, edit `src/lib/brand.ts` and the store name under
+Admin → Тохиргоо.
 
 ## Identity
 
-- **Palette** — cool sidewalk greys (`#eceef0` paper, `#e2e5e8`, `#d6dadf`), ink `#0e1115`,
-  one cobalt accent `#2340e0` for actions, and a shoebox-label yellow `#f2ce3a` used only on
-  sizes and the "new" badge.
-- **Type** — Unbounded (wide geometric display, Cyrillic) for headings, prices and sizes;
-  Golos Text (a Cyrillic-first UI face) for everything else. Sentence case everywhere — no
-  tracked capitals.
-- **Signature** — the size run: square size chips with an ink border, like the label on a
-  shoebox. On the home page the run is the way in: pick a size, see only shoes in stock in it.
-- **Photography** — Burst (Shopify) stock photos of real shoes on plain surfaces; product
-  photos never show a logo that is not ours to use.
+- **Palette** — a pale sage page (`#f1f2ed`, `#e6e8e1`, `#d9dcd2`), green-black ink `#18201c`,
+  one deep emerald `#1f5c4d` for actions and a soft mint `#cfe5d8` for small highlights.
+  Deliberately no pink: the shop is for women, the design does not need to say so in pink
+  (`tests/unit/sevshee-catalog.test.ts` also keeps pink out of the catalogue colours).
+- **Type** — Tenor Sans (a wide, quiet fashion sans with Cyrillic) for headings and the wordmark;
+  Manrope for everything else. Sentence case.
+- **Shapes** — round: pill buttons and category links, 28–32 px corners on photos and panels.
+- **Signature** — colour swatches in the hero: pick a colour, see what is in stock in it. A
+  body-measurement size finder (chest, waist, hip → size) answers "which size?" before it is asked.
+- **Photography** — Burst (Shopify) stock photos of real clothes; no logos that are not ours.
 
 ## Voice
 
-Plain, practical Mongolian. "Размер" for shoe sizes (what shoppers say), foot length in
-centimetres, no invented claims about materials or comfort beyond the product data.
+Warm, plain Mongolian. "Хэмжээ" for clothing sizes, measurements in centimetres, no invented
+claims about fabrics beyond the product data.

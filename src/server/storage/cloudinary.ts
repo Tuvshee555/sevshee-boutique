@@ -17,7 +17,7 @@ export async function uploadProductImage(file: File): Promise<{ url: string; wid
   if (!ALLOWED.has(file.type)) throw new ServiceError('bad_type', 'Зөвхөн JPG, PNG, WebP, AVIF зураг байршуулна.')
   if (file.size > MAX_BYTES) throw new ServiceError('too_big', 'Зургийн хэмжээ 8 MB-аас ихгүй байна.')
   const cloud = process.env.CLOUDINARY_CLOUD_NAME!
-  const folder = `${process.env.CLOUDINARY_FOLDER || 'alkham-store'}/products`
+  const folder = `${process.env.CLOUDINARY_FOLDER || 'sevshee-store'}/products`
   const timestamp = Math.floor(Date.now() / 1000)
   // Signature: parameters sorted alphabetically, joined, followed by the API secret.
   const signature = createHash('sha1').update(`folder=${folder}&timestamp=${timestamp}${process.env.CLOUDINARY_API_SECRET}`).digest('hex')

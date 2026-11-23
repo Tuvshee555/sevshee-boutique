@@ -1,4 +1,4 @@
-// Shapes of a seed catalogue: the shop's own (./alkham) and the reference one tests use (./reference).
+// Shapes of a seed catalogue: the shop's own (./sevshee) and the reference one tests use (./reference).
 
 export interface SeedColor {
   code: string

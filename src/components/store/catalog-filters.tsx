@@ -131,7 +131,7 @@ export function CatalogFilters({ facets, state, resultCount }: { facets: { sizes
   const clear = () => apply({ sizes: [], colors: [], price: null, inStockOnly: false })
 
   const chips: { key: string; label: string; remove: () => void }[] = [
-    ...state.sizes.map((s) => ({ key: `s-${s}`, label: `Размер: ${sizeLabel(s)}`, remove: () => apply({ sizes: state.sizes.filter((x) => x !== s) }) })),
+    ...state.sizes.map((s) => ({ key: `s-${s}`, label: `Хэмжээ: ${sizeLabel(s)}`, remove: () => apply({ sizes: state.sizes.filter((x) => x !== s) }) })),
     ...state.colors.map((c) => ({ key: `c-${c}`, label: COLOR_FAMILIES[c].label, remove: () => apply({ colors: state.colors.filter((x) => x !== c) }) })),
     ...(state.price ? [{ key: 'p', label: PRICE_BUCKETS.find((b) => b.key === state.price)?.label ?? '', remove: () => apply({ price: null }) }] : []),
     ...(state.inStockOnly ? [{ key: 'st', label: 'Бэлэн байгаа', remove: () => apply({ inStockOnly: false }) }] : []),
@@ -142,7 +142,7 @@ export function CatalogFilters({ facets, state, resultCount }: { facets: { sizes
     <div className={cn('transition-opacity', pending && 'opacity-60')}>
       <div className="flex flex-wrap items-center justify-between gap-3">
         <div className="hidden flex-wrap items-center gap-2 md:flex">
-          <Dropdown label="Размер" count={state.sizes.length}>
+          <Dropdown label="Хэмжээ" count={state.sizes.length}>
             <SizeOptions sizes={facets.sizes} state={state} apply={apply} />
           </Dropdown>
           <Dropdown label="Өнгө" count={state.colors.length}>
@@ -207,7 +207,7 @@ export function CatalogFilters({ facets, state, resultCount }: { facets: { sizes
             </div>
             <div className="space-y-7 px-5 py-6">
               <div>
-                <p className="mb-3 text-sm font-medium">Размер</p>
+                <p className="mb-3 text-sm font-medium">Хэмжээ</p>
                 <SizeOptions sizes={facets.sizes} state={state} apply={apply} />
               </div>
               <div>

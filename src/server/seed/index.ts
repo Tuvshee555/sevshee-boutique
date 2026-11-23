@@ -13,7 +13,7 @@ import { CATEGORIES, COLLECTIONS, PRODUCTS, SAMPLE_CUSTOMERS, SAMPLE_ORDERS, typ
 import { seedAssistant } from './assistant'
 import { DEFAULT_POLICIES, DEFAULT_SHIPPING_METHODS, DEFAULT_SIZE_GUIDE, DEFAULT_STORE_INFO } from './content'
 
-export const DEMO_USER_EMAIL = 'demo@alkham.example'
+export const DEMO_USER_EMAIL = 'demo@sevshee.example'
 
 const catalogImage = (key: string) => `/images/catalog/${key}.webp`
 const editorialImage = (key: string) => `/images/editorial/${key}.webp`

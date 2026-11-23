@@ -29,7 +29,7 @@ export function ProductCard({
   return (
     <article className="group relative">
       <Link href={href} className="block" aria-label={product.name}>
-        <div className="relative aspect-[4/5] overflow-hidden bg-bone">
+        <div className="relative aspect-[4/5] overflow-hidden rounded-2xl bg-bone">
           {primary ? (
             <Image
               src={primary.url}
@@ -53,7 +53,7 @@ export function ProductCard({
             />
           )}
           <div className="absolute left-2.5 top-2.5 flex flex-col items-start gap-1">
-            {product.isNewArrival && !soldOut && <span className="bg-label px-2 py-1 text-[11.5px] font-semibold text-ink">Шинэ</span>}
+            {product.isNewArrival && !soldOut && <span className="rounded-full bg-label px-2.5 py-1 text-[11.5px] font-semibold text-ink">Шинэ</span>}
             {availability === 'low_stock' && (
               <span className="bg-paper px-2 py-1 text-[11.5px] font-semibold text-accent">Цөөн үлдсэн</span>
             )}

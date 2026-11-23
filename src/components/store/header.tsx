@@ -43,7 +43,7 @@ async function CartCount() {
 
 export async function Header() {
   const nav = await getNavigation()
-  const featured = nav.collections.find((c) => c.slug === 'winter') ?? nav.collections[0]
+  const featured = nav.collections.find((c) => c.slug === 'evening') ?? nav.collections[0]
   const navLink = 'link-underline py-1 text-[14px] font-medium'
   return (
     <header className="sticky top-0 z-40 border-b border-stone-200 bg-paper/95 backdrop-blur-md">
@@ -54,11 +54,11 @@ export async function Header() {
             <Link href="/collections/new" className={navLink}>
               Шинэ
             </Link>
-            <Link href="/shop/sneakers" className={navLink}>
-              Пүүз
+            <Link href="/shop/dresses" className={navLink}>
+              Даашинз
             </Link>
-            <Link href="/shop/boots" className={navLink}>
-              Ботинк
+            <Link href="/shop/knitwear" className={navLink}>
+              Сүлжмэл
             </Link>
             <div className="group flex h-16 items-center">
               <Link href="/shop" className={navLink} aria-haspopup="true">
@@ -107,13 +107,13 @@ export async function Header() {
                 </div>
               </div>
             </div>
-            <Link href="/shop/kids" className={navLink}>
-              Хүүхэд
+            <Link href="/shop/bags" className={navLink}>
+              Цүнх
             </Link>
           </nav>
         </div>
 
-        <Link href="/" className="wordmark text-[19px] sm:text-[22px]" aria-label={`${BRAND.name} нүүр хуудас`}>
+        <Link href="/" className="wordmark pl-[0.34em] text-[20px] sm:text-[24px]" aria-label={`${BRAND.name} нүүр хуудас`}>
           {BRAND.name}
         </Link>
 

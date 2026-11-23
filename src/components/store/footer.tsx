@@ -13,9 +13,9 @@ export async function Footer() {
     <footer className="mt-24 bg-ink text-white">
       <div className="container-page grid gap-12 py-16 lg:grid-cols-[1.4fr_1fr_1fr_1fr]">
         <div className="max-w-sm">
-          <p className="wordmark text-2xl">{BRAND.name}</p>
+          <p className="wordmark pl-[0.34em] text-2xl">{BRAND.name}</p>
           <p className="mt-4 text-sm leading-relaxed text-white/70">
-            Пүүз, ботинк, туфли, хүүхдийн гутал. Размер бүрийн үлдэгдэл бодит цагт — 14 хоногт размер солино.
+            Даашинз, сүлжмэл, гадуур хувцас, цүнх. Хэмжээ, өнгө бүрийн үлдэгдэл бодит цагт — 14 хоногт хэмжээ солино.
           </p>
           <div className="mt-8">
             <p className={heading}>Мэдээллийн товхимол</p>
@@ -39,9 +39,9 @@ export async function Footer() {
             <li><Link href="/help/how-to-order" className={link}>Хэрхэн захиалах вэ</Link></li>
             <li><Link href="/help/delivery" className={link}>Хүргэлт</Link></li>
             <li><Link href="/help/returns" className={link}>Буцаалт</Link></li>
-            <li><Link href="/help/exchange" className={link}>Размер солих</Link></li>
+            <li><Link href="/help/exchange" className={link}>Хэмжээ солих</Link></li>
             <li><Link href="/help/payment" className={link}>Төлбөр</Link></li>
-            <li><Link href="/size-guide" className={link}>Размерын хүснэгт</Link></li>
+            <li><Link href="/size-guide" className={link}>Хэмжээний хүснэгт</Link></li>
             <li><Link href="/orders" className={link}>Миний захиалга</Link></li>
           </ul>
         </div>

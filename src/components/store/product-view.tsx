@@ -227,13 +227,13 @@ export function ProductView({
         <div className="mt-7">
           <div className="flex items-center justify-between text-[13px]">
             <p>
-              <span className="text-stone-600">Размер:</span> <span className="font-medium">{size ? sizeLabel(size) : 'сонгоно уу'}</span>
+              <span className="text-stone-600">Хэмжээ:</span> <span className="font-medium">{size ? sizeLabel(size) : 'сонгоно уу'}</span>
             </p>
             <a href="#size-guide" className="text-stone-600 underline underline-offset-4 hover:text-ink">
-              Размерын заавар
+              Хэмжээний заавар
             </a>
           </div>
-          <div className="mt-3 grid grid-cols-4 gap-2 sm:grid-cols-5" role="radiogroup" aria-label="Размер сонгох">
+          <div className="mt-3 grid grid-cols-4 gap-2 sm:grid-cols-5" role="radiogroup" aria-label="Хэмжээ сонгох">
             {product.sizes.map((s) => {
               const v = variantFor(s)
               const st = v ? stock[v.id] : undefined
@@ -264,7 +264,7 @@ export function ProductView({
             })}
           </div>
           <p className="mt-3 min-h-5 text-[13px]" aria-live="polite">
-            {!size && <span className="text-stone-600">Размераа сонгоход үлдэгдэл харагдана.</span>}
+            {!size && <span className="text-stone-600">Хэмжээгээ сонгоход үлдэгдэл харагдана.</span>}
             {size && availability === 'in_stock' && (
               <span className="text-success">
                 Бэлэн байгаа · үлдэгдэл <span className="tabular">{live?.stock}</span> ширхэг
@@ -276,7 +276,7 @@ export function ProductView({
               </span>
             )}
             {size && (availability === 'out_of_stock' || availability === 'unavailable' || !variant) && (
-              <span className="text-danger">Энэ өнгө, размер одоогоор дууссан. Өөр размер, өнгө сонгоно уу.</span>
+              <span className="text-danger">Энэ өнгө, хэмжээ одоогоор дууссан. Өөр хэмжээ, өнгө сонгоно уу.</span>
             )}
           </p>
         </div>
@@ -301,7 +301,7 @@ export function ProductView({
           </div>
           {/* min-w-0 + truncate: the button may shrink on a 360px phone instead of widening the page. */}
           <Button size="lg" className="h-13 min-w-0 flex-1" onClick={add} disabled={!size || !sellable || pending}>
-            <span className="truncate">{pending ? 'Нэмж байна…' : !size ? 'Размер сонгох' : sellable ? 'Сагсанд нэмэх' : 'Дууссан'}</span>
+            <span className="truncate">{pending ? 'Нэмж байна…' : !size ? 'Хэмжээ сонгох' : sellable ? 'Сагсанд нэмэх' : 'Дууссан'}</span>
           </Button>
         </div>
         {error && <Alert tone="danger" className="mt-4">{error}</Alert>}

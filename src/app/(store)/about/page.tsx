@@ -8,16 +8,16 @@ import { BRAND } from '@/lib/brand'
 import { EDITORIAL } from '@/lib/editorial'
 
 export const metadata: Metadata = {
-  title: 'Дэлгүүрийн тухай',
-  description: `${BRAND.name} — пүүз, ботинк, туфлийн зохиомол гутлын дэлгүүр, ${BRAND.agencyName}-ын портфолио демо.`,
+  title: 'Бутикийн тухай',
+  description: `${BRAND.name} — эмэгтэйчүүдэд зориулсан зохиомол бутик, ${BRAND.agencyName}-ын портфолио демо.`,
   alternates: { canonical: '/about' },
 }
 
 const FEATURES = [
-  ['Размер, өнгө тус бүрийн үлдэгдэл', 'Хувилбар бүр өөрийн SKU, үлдэгдэлтэй. Худалдан авагч зөвхөн байгаа размераа авна.'],
+  ['Хэмжээ, өнгө тус бүрийн үлдэгдэл', 'Хувилбар бүр өөрийн SKU, үлдэгдэлтэй. Худалдан авагч зөвхөн байгаа хэмжээгээ авна.'],
   ['Найдвартай захиалга', 'Үнэ, хүргэлтийн төлбөр, нийт дүнг сервер тооцоолж, барааг гүйлгээний дотор нөөцөлнө — нэг барааг хоёр хүн зэрэг авахгүй.'],
   ['Удирдлагын самбар', 'Бүтээгдэхүүн, хувилбар, үлдэгдэл, захиалга, харилцагч, тохиргоог нэг дороос.'],
-  ['Худалдааны туслах', 'Сангаас гутал хайж, үнэ, размер, үлдэгдлийг шалгаж хариулна. Хөлийн уртаар размер зөвлөнө. Мэдэхгүй зүйлээ зохиохгүй.'],
+  ['Худалдааны туслах', 'Сангаас бараа хайж, үнэ, хэмжээ, үлдэгдлийг шалгаж хариулна. Биеийн хэмжээгээр хүснэгтээс хэмжээ олно. Мэдэхгүй зүйлээ зохиохгүй.'],
   ['QPay-д бэлэн', 'QPay холболт бэлэн. Демо нь бодит мөнгө авахгүй симуляц горимд ажиллана.'],
 ]
 
@@ -26,17 +26,17 @@ export default function AboutPage() {
     <>
       <section className="container-page grid items-center gap-12 pt-10 sm:pt-14 lg:grid-cols-2">
         <div>
-          <h1 className="display text-[40px] sm:text-[60px]">Алхам бүрт тохирно</h1>
+          <h1 className="display text-[40px] sm:text-[60px]">Сэвшээ салхи шиг хөнгөн</h1>
           <div className="prose-store mt-6 max-w-xl text-[15.5px] leading-relaxed text-charcoal">
             <p>
-              {BRAND.name} («алхам») бол Улаанбаатарын гудамж, өвөл, ажлын өдөрт зориулсан гутлын дэлгүүр. Пүүз, ботинк, өсгийтэй гутал, туфли,
-              гэрийн шаахай, хүүхдийн гутал — бүгд размер, өнгө тус бүрийн бодит үлдэгдэлтэй.
+              {BRAND.name} («сэвшээ» — зөөлөн салхи) бол Улаанбаатарын эмэгтэйчүүдэд зориулсан жижиг бутик. Даашинз, цамц, сүлжмэл, банзал, өмд, гадуур
+              хувцас, цүнх — улирал бүр цөөн, хоорондоо зохицох загвар сонгоно.
             </p>
-            <p>Гутлыг өмсөж үзэлгүй авахад хэцүү. Тиймээс хүргэгч хаалган дээр хүлээж байхад өмсөж үзнэ, размер таарахгүй бол 14 хоногт нэг удаа үнэгүй солино.</p>
+            <p>Хэмжээ, өнгө бүрийн үлдэгдэл бодит цагт харагдана. Хэмжээ таарахгүй бол 14 хоногт нэг удаа үнэгүй солино.</p>
           </div>
         </div>
-        <div className="relative aspect-[4/5] bg-bone">
-          <Image src={EDITORIAL.leaves.src} alt={EDITORIAL.leaves.alt} fill priority sizes="(min-width: 1024px) 45vw, 100vw" className="object-cover" />
+        <div className="relative aspect-[4/5] overflow-hidden rounded-[32px] bg-bone">
+          <Image src={EDITORIAL.about.src} alt={EDITORIAL.about.alt} fill priority sizes="(min-width: 1024px) 45vw, 100vw" className="object-cover" />
         </div>
       </section>
 
@@ -46,7 +46,7 @@ export default function AboutPage() {
             <p className="eyebrow text-label">Портфолио демо</p>
             <h2 className="display mt-3 text-[32px] sm:text-[44px]">Энэ дэлгүүр бодит биш — систем нь бодит</h2>
             <p className="mt-5 max-w-md text-[15px] leading-relaxed text-white/75">
-              {BRAND.name} бол {BRAND.agencyName}-ын бүтээсэн зохиомол дэлгүүр. Бүтээгдэхүүн, үнэ, үлдэгдэл, жишээ захиалга бүгд жишээ өгөгдөл бөгөөд
+              {BRAND.name} бол {BRAND.agencyName}-ын бүтээсэн зохиомол бутик. Бүтээгдэхүүн, үнэ, үлдэгдэл, жишээ захиалга бүгд жишээ өгөгдөл бөгөөд
               бодит худалдаа, төлбөр, хүргэлт хийгдэхгүй. Харин сан, захиалга, үлдэгдэл, удирдлагын самбар, туслах нь жинхэнэ ажилладаг.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">

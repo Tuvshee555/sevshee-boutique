@@ -17,13 +17,13 @@ export async function withDb<T>(url: string, fn: (db: ReturnType<typeof createDb
 
 /** Applies pending migrations. Drizzle runs them in one transaction and records them in drizzle.__drizzle_migrations. */
 export function runMigrations(url: string) {
-  return withDb(url, (db) => migrate(db, { migrationsFolder: MIGRATIONS_FOLDER, migrationsSchema: 'alkham_migrations' }))
+  return withDb(url, (db) => migrate(db, { migrationsFolder: MIGRATIONS_FOLDER, migrationsSchema: 'sevshee_migrations' }))
 }
 
 export async function storeSchemaExists(url: string): Promise<boolean> {
   return withDb(url, async (db) => {
     const r = await db.execute<{ exists: boolean }>(
-      sql`select exists (select 1 from information_schema.tables where table_schema = 'alkham' and table_name = 'products') as exists`,
+      sql`select exists (select 1 from information_schema.tables where table_schema = 'sevshee' and table_name = 'products') as exists`,
     )
     return Boolean(r.rows[0]?.exists)
   })

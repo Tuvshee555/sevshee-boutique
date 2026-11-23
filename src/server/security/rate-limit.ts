@@ -33,16 +33,16 @@ function effectiveLimit(rule: RateLimitRule): number {
 export async function hitRateLimit(db: Database, rule: RateLimitRule, subject: string): Promise<boolean> {
   const key = `${rule.name}:${subject}`.slice(0, 200)
   const result = await db.execute<{ count: number }>(sql`
-    insert into alkham.rate_limits (key, count, window_started_at)
+    insert into sevshee.rate_limits (key, count, window_started_at)
     values (${key}, 1, now())
     on conflict (key) do update set
       count = case
-        when alkham.rate_limits.window_started_at < now() - make_interval(secs => ${rule.windowSeconds}) then 1
-        else alkham.rate_limits.count + 1
+        when sevshee.rate_limits.window_started_at < now() - make_interval(secs => ${rule.windowSeconds}) then 1
+        else sevshee.rate_limits.count + 1
       end,
       window_started_at = case
-        when alkham.rate_limits.window_started_at < now() - make_interval(secs => ${rule.windowSeconds}) then now()
-        else alkham.rate_limits.window_started_at
+        when sevshee.rate_limits.window_started_at < now() - make_interval(secs => ${rule.windowSeconds}) then now()
+        else sevshee.rate_limits.window_started_at
       end
     returning count
   `)
@@ -55,5 +55,5 @@ export async function enforceRateLimit(db: Database, rule: RateLimitRule, subjec
 }
 
 export async function pruneRateLimits(db: Database) {
-  await db.execute(sql`delete from alkham.rate_limits where window_started_at < now() - interval '2 days'`)
+  await db.execute(sql`delete from sevshee.rate_limits where window_started_at < now() - interval '2 days'`)
 }

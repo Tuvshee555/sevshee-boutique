@@ -1,21 +1,21 @@
-# ALKHAM — shoe store demonstration
+# SEVSHEE — women's boutique demonstration
 
-A complete online shoe store for a **fictional** Ulaanbaatar shop, built by
+A complete online boutique for a **fictional** Ulaanbaatar women's clothing shop, built by
 [Ursgal Digital](https://www.ursgaldigital.com) as a portfolio demonstration. The shop,
 products, prices, stock and sample orders are invented; the system is real: a Postgres
 database, size-level inventory, server-priced checkout, an admin dashboard and a shopping
 assistant that answers from the database.
 
-ALKHAM is a fork of the MANAN clothing demo (`Tuvshee555/clothing-brand`): the same engine with
-its own catalogue (`src/server/seed/alkham/`), identity and copy. The engine's tests still run
-against the MANAN reference catalogue (`src/server/seed/reference/`, `STORE_CATALOG=reference`)
-so both stores keep the same behaviour; `tests/unit/alkham-catalog.test.ts` checks ALKHAM's own data.
+SEVSHEE is a sibling of the MANAN clothing demo and the ALKHAM shoe demo: the same engine with
+its own catalogue (`src/server/seed/sevshee/`), identity and copy. The engine's tests still run
+against the MANAN reference catalogue (`src/server/seed/reference/`, `STORE_CATALOG=reference`);
+`tests/unit/sevshee-catalog.test.ts` checks SEVSHEE's own data.
 
 | | |
 |---|---|
-| Store | https://alkham-shoes.vercel.app |
+| Store | https://sevshee-boutique.vercel.app |
 | Admin | `/admin/login` → «Демо горимоор нэвтрэх» (no password) |
-| Portfolio | https://www.ursgaldigital.com/portfolio/shoes |
+| Portfolio | https://www.ursgaldigital.com/portfolio/boutique |
 
 Everything customer-facing is in Mongolian; prices are integer tögrög (`189,000₮`).
 
@@ -23,12 +23,12 @@ Everything customer-facing is in Mongolian; prices are integer tögrög (`189,00
 
 | Area | Status |
 |---|---|
-| Catalogue, 27 shoes in 6 categories (sneakers, boots, heels, formal, flats and slippers, kids), colour × EU-size variants, photos | **Real** — read from Postgres on every page |
+| Catalogue, 30 products in 7 categories (dresses, tops, knitwear, skirts, trousers, outerwear, bags and scarves), colour × size variants, photos | **Real** — read from Postgres on every page |
 | Stock per variant, low-stock / sold-out states | **Real** — live, enforced by the database (`stock >= 0`) |
-| Size run on the home page, foot-length size finder | **Real** — sizes and foot lengths come from the store's size chart in the database |
+| Colour swatches on the home page, body-measurement size finder | **Real** — colour families and size ranges come from the catalogue and the size chart in the database |
 | Cart, checkout, order creation, stock reservation | **Real** — one transaction with row locks; cannot oversell |
 | Admin: products, variants, stock, orders, customers, settings | **Real** (owner account); the public demo is restricted |
-| Shopping assistant | **Real** — exact colour × size answers, foot length → size, Latin-script Mongolian, chat orders after an explicit «тийм», hand-over to staff. Catalogue mode (deterministic) without an AI key |
+| Shopping assistant | **Real** — exact colour × size answers, chest/waist → size, Latin-script Mongolian, chat orders after an explicit «тийм», hand-over to staff. Catalogue mode (deterministic) without an AI key |
 | QPay | **Simulated** — clearly labelled; the adapter is built but the demo never takes money |
 | Delivery, e-mail, SMS | **Not performed** — demo only |
 | Shop, products, prices, sample orders, policies | **Fictional** |
@@ -49,7 +49,7 @@ npm run db:dev                 # own terminal: local PostgreSQL; the first run m
 npm run dev                    # http://localhost:3200
 ```
 
-Local development and tests use only the local database from `npm run db:dev` (`DATABASE_URL=postgres://postgres:postgres@127.0.0.1:54328/alkham_dev`, data in `.dev-db/`). The production database URL is set only in the Vercel project; never put it in `.env.local`.
+Local development and tests use only the local database from `npm run db:dev` (`DATABASE_URL=postgres://postgres:postgres@127.0.0.1:54328/sevshee_dev`, data in `.dev-db/`). The production database URL is set only in the Vercel project; never put it in `.env.local`.
 
 | Command | |
 |---|---|

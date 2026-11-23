@@ -3,21 +3,14 @@ import { TestChat } from '@/components/admin/assistant/test-chat'
 import { ModeBadge } from '@/components/admin/assistant/ui'
 import { Card, PageHeader } from '@/components/admin/ui'
 import { chatView } from '@/server/assistant'
+import { STORE_VOICE } from '@/lib/store-voice'
 import { requireAdminPage } from '@/server/auth/current'
 import { db } from '@/server/db'
 import { getAssistantStatus, latestTestConversation } from '@/server/queries/assistant-admin'
 
 export const metadata: Metadata = { title: 'Чатбот турших' }
 
-const TRY_THESE = [
-  'Хар hoodie L размер байгаа юу?',
-  'ene tsamts hed ve',
-  '200,000₮-өөс доош ямар цамц байна?',
-  'Шулуун жинс 30 размер бий юу?',
-  'Хүргэлт хэд хоног вэ?',
-  'Хар hoodie L авъя → энд захиалъя',
-  'Ажилтантай холбогдмоор байна',
-]
+const TRY_THESE = STORE_VOICE.tryThese
 
 export default async function TryChatbotPage() {
   const actor = await requireAdminPage('/admin/assistant/try', 'assistant.view')

@@ -10,7 +10,7 @@ export function SizeGuideTable({ guide, kind }: { guide: SizeGuide; kind: SizeCh
         <thead>
           <tr className="border-b border-stone-300">
             <th scope="col" className="py-2 pr-3 font-medium">
-              Размер
+              Хэмжээ
             </th>
             {table.columns.map((c) => (
               <th key={c} scope="col" className="py-2 pr-3 font-medium">

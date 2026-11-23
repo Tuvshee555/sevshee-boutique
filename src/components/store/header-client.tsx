@@ -9,7 +9,7 @@ import { BRAND } from '@/lib/brand'
 
 type NavItem = { slug: string; name: string }
 
-const POPULAR = ['Пүүз', 'Челси ботинк', 'Өвлийн ботинк', 'Лофер', 'Хүүхдийн гутал']
+const POPULAR = ['Даашинз', 'Сүлжмэл свитер', 'Арьсан хүрэм', 'Цагаан цамц', 'Цүнх']
 
 export function SearchButton() {
   const [open, setOpen] = useState(false)
@@ -112,8 +112,8 @@ export function MobileMenu({ categories, collections }: { categories: NavItem[];
             <div className="space-y-8 px-5 py-6">
               <ul className="space-y-3 text-lg">
                 <li><Link href="/collections/new" onClick={close}>Шинэ ирэлт</Link></li>
-                <li><Link href="/collections/women" onClick={close}>Эмэгтэй</Link></li>
-                <li><Link href="/collections/men" onClick={close}>Эрэгтэй</Link></li>
+                <li><Link href="/collections/evening" onClick={close}>Үдшийн гоёл</Link></li>
+                <li><Link href="/collections/office" onClick={close}>Ажлын өдөр</Link></li>
                 <li><Link href="/shop" onClick={close}>Бүх бараа</Link></li>
               </ul>
               <div>

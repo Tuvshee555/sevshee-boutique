@@ -6,7 +6,7 @@ export type ButtonVariant = 'primary' | 'outline' | 'ghost' | 'light' | 'danger'
 export type ButtonSize = 'sm' | 'md' | 'lg' | 'icon'
 
 const base =
-  'inline-flex items-center justify-center gap-2 font-semibold transition-colors duration-200 select-none whitespace-nowrap ' +
+  'inline-flex items-center justify-center gap-2 rounded-full font-semibold transition-colors duration-200 select-none whitespace-nowrap ' +
   'disabled:cursor-not-allowed disabled:opacity-45 aria-disabled:cursor-not-allowed aria-disabled:opacity-45'
 
 const variants: Record<ButtonVariant, string> = {

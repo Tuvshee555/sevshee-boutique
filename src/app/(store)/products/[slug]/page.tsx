@@ -123,7 +123,7 @@ async function ProductPageBody({ params, searchParams }: Props) {
         </p>
       </Section>
       {!product.sizes.every((s) => s === 'ONE SIZE') && (
-        <Section title="Размерын заавар" id="size-guide">
+        <Section title="Хэмжээний заавар" id="size-guide">
           <SizeGuideTable guide={content.sizeGuide} kind={chartKind} />
           <p className="mt-3 text-[12.5px] text-stone-600">
             {chartKind === 'shoes' || chartKind === 'kids' ? `${SHOE_MEASURE_TIP} ${content.sizeGuide.note}` : content.sizeGuide.note}
@@ -147,13 +147,13 @@ async function ProductPageBody({ params, searchParams }: Props) {
         </Link>
       </Section>
       <Section title="Буцаалт ба солилт">
-        <p>Гадаа өмсөөгүй, хайрцаг, шошго нь бүтэн гутлыг 14 хоногийн дотор буцаах эсвэл размерыг нэг удаа үнэгүй солих боломжтой.</p>
+        <p>14 хоногийн дотор өмсөөгүй, шошготой барааг буцаах эсвэл хэмжээг нэг удаа үнэгүй солих боломжтой.</p>
         <div className="mt-3 flex gap-4 text-[12.5px]">
           <Link href="/help/returns" className="underline underline-offset-4">
             Буцаалт
           </Link>
           <Link href="/help/exchange" className="underline underline-offset-4">
-            Размер солих
+            Хэмжээ солих
           </Link>
         </div>
       </Section>
@@ -189,7 +189,7 @@ async function ProductPageBody({ params, searchParams }: Props) {
       {relatedProducts.length > 0 && (
         <section className="container-page pt-24" aria-labelledby="related-heading">
           <h2 id="related-heading" className="display mb-8 text-[30px] sm:text-[36px]">
-            Төстэй гутал
+            Хослуулж өмсөх
           </h2>
           <div className="grid grid-cols-2 gap-x-3 gap-y-9 sm:gap-x-5 lg:grid-cols-4">
             {relatedProducts.map((p) => (

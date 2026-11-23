@@ -5,7 +5,7 @@ import type { RawParams } from '@/lib/catalog-params'
 
 export const metadata: Metadata = {
   title: 'Бүх бараа',
-  description: 'Пүүз, ботинк, өсгийтэй гутал, туфли, хавтгай гутал, хүүхдийн гутал — размер, өнгө, үнэ, үлдэгдлээр шүүнэ.',
+  description: 'Даашинз, цамц, сүлжмэл, банзал, өмд, гадуур хувцас, цүнх — хэмжээ, өнгө, үнэ, үлдэгдлээр шүүнэ.',
   alternates: { canonical: '/shop' },
 }
 

@@ -4,9 +4,9 @@
   "version": "7",
   "dialect": "postgresql",
   "tables": {
-    "alkham.ai_usage": {
+    "sevshee.ai_usage": {
       "name": "ai_usage",
-      "schema": "alkham",
+      "schema": "sevshee",
       "columns": {
         "id": {
           "name": "id",
@@ -113,9 +113,9 @@
       "checkConstraints": {},
       "isRLSEnabled": true
     },
-    "alkham.audit_logs": {
+    "sevshee.audit_logs": {
       "name": "audit_logs",
-      "schema": "alkham",
+      "schema": "sevshee",
       "columns": {
         "id": {
           "name": "id",
@@ -191,7 +191,7 @@
           "name": "audit_logs_actor_user_id_users_id_fk",
           "tableFrom": "audit_logs",
           "tableTo": "users",
-          "schemaTo": "alkham",
+          "schemaTo": "sevshee",
           "columnsFrom": [
             "actor_user_id"
           ],
@@ -208,9 +208,9 @@
       "checkConstraints": {},
       "isRLSEnabled": true
     },
-    "alkham.cart_items": {
+    "sevshee.cart_items": {
       "name": "cart_items",
-      "schema": "alkham",
+      "schema": "sevshee",
       "columns": {
         "id": {
           "name": "id",
@@ -280,7 +280,7 @@
           "name": "cart_items_cart_id_carts_id_fk",
           "tableFrom": "cart_items",
           "tableTo": "carts",
-          "schemaTo": "alkham",
+          "schemaTo": "sevshee",
           "columnsFrom": [
             "cart_id"
           ],
@@ -294,7 +294,7 @@
           "name": "cart_items_variant_id_product_variants_id_fk",
           "tableFrom": "cart_items",
           "tableTo": "product_variants",
-          "schemaTo": "alkham",
+          "schemaTo": "sevshee",
           "columnsFrom": [
             "variant_id"
           ],
@@ -311,14 +311,14 @@
       "checkConstraints": {
         "cart_items_quantity_range": {
           "name": "cart_items_quantity_range",
-          "value": "\"alkham\".\"cart_items\".\"quantity\" between 1 and 20"
+          "value": "\"sevshee\".\"cart_items\".\"quantity\" between 1 and 20"
         }
       },
       "isRLSEnabled": true
     },
-    "alkham.carts": {
+    "sevshee.carts": {
       "name": "carts",
-      "schema": "alkham",
+      "schema": "sevshee",
       "columns": {
         "id": {
           "name": "id",
@@ -392,9 +392,9 @@
       "checkConstraints": {},
       "isRLSEnabled": true
     },
-    "alkham.categories": {
+    "sevshee.categories": {
       "name": "categories",
-      "schema": "alkham",
+      "schema": "sevshee",
       "columns": {
         "id": {
           "name": "id",
@@ -472,9 +472,9 @@
       "checkConstraints": {},
       "isRLSEnabled": true
     },
-    "alkham.chat_conversations": {
+    "sevshee.chat_conversations": {
       "name": "chat_conversations",
-      "schema": "alkham",
+      "schema": "sevshee",
       "columns": {
         "id": {
           "name": "id",
@@ -691,7 +691,7 @@
           "name": "chat_conversations_test_user_id_users_id_fk",
           "tableFrom": "chat_conversations",
           "tableTo": "users",
-          "schemaTo": "alkham",
+          "schemaTo": "sevshee",
           "columnsFrom": [
             "test_user_id"
           ],
@@ -705,7 +705,7 @@
           "name": "chat_conversations_taken_over_by_users_id_fk",
           "tableFrom": "chat_conversations",
           "tableTo": "users",
-          "schemaTo": "alkham",
+          "schemaTo": "sevshee",
           "columnsFrom": [
             "taken_over_by"
           ],
@@ -722,14 +722,14 @@
       "checkConstraints": {
         "chat_conversations_channel": {
           "name": "chat_conversations_channel",
-          "value": "\"alkham\".\"chat_conversations\".\"channel\" in ('website', 'test', 'sample')"
+          "value": "\"sevshee\".\"chat_conversations\".\"channel\" in ('website', 'test', 'sample')"
         }
       },
       "isRLSEnabled": true
     },
-    "alkham.chat_errors": {
+    "sevshee.chat_errors": {
       "name": "chat_errors",
-      "schema": "alkham",
+      "schema": "sevshee",
       "columns": {
         "id": {
           "name": "id",
@@ -800,7 +800,7 @@
           "name": "chat_errors_conversation_id_chat_conversations_id_fk",
           "tableFrom": "chat_errors",
           "tableTo": "chat_conversations",
-          "schemaTo": "alkham",
+          "schemaTo": "sevshee",
           "columnsFrom": [
             "conversation_id"
           ],
@@ -817,9 +817,9 @@
       "checkConstraints": {},
       "isRLSEnabled": true
     },
-    "alkham.chat_faqs": {
+    "sevshee.chat_faqs": {
       "name": "chat_faqs",
-      "schema": "alkham",
+      "schema": "sevshee",
       "columns": {
         "id": {
           "name": "id",
@@ -903,7 +903,7 @@
           "name": "chat_faqs_updated_by_users_id_fk",
           "tableFrom": "chat_faqs",
           "tableTo": "users",
-          "schemaTo": "alkham",
+          "schemaTo": "sevshee",
           "columnsFrom": [
             "updated_by"
           ],
@@ -920,9 +920,9 @@
       "checkConstraints": {},
       "isRLSEnabled": true
     },
-    "alkham.chat_handovers": {
+    "sevshee.chat_handovers": {
       "name": "chat_handovers",
-      "schema": "alkham",
+      "schema": "sevshee",
       "columns": {
         "id": {
           "name": "id",
@@ -1020,7 +1020,7 @@
             }
           ],
           "isUnique": true,
-          "where": "\"alkham\".\"chat_handovers\".\"status\" <> 'resolved'",
+          "where": "\"sevshee\".\"chat_handovers\".\"status\" <> 'resolved'",
           "concurrently": false,
           "method": "btree",
           "with": {}
@@ -1052,7 +1052,7 @@
           "name": "chat_handovers_conversation_id_chat_conversations_id_fk",
           "tableFrom": "chat_handovers",
           "tableTo": "chat_conversations",
-          "schemaTo": "alkham",
+          "schemaTo": "sevshee",
           "columnsFrom": [
             "conversation_id"
           ],
@@ -1066,7 +1066,7 @@
           "name": "chat_handovers_assigned_user_id_users_id_fk",
           "tableFrom": "chat_handovers",
           "tableTo": "users",
-          "schemaTo": "alkham",
+          "schemaTo": "sevshee",
           "columnsFrom": [
             "assigned_user_id"
           ],
@@ -1080,7 +1080,7 @@
           "name": "chat_handovers_resolved_by_users_id_fk",
           "tableFrom": "chat_handovers",
           "tableTo": "users",
-          "schemaTo": "alkham",
+          "schemaTo": "sevshee",
           "columnsFrom": [
             "resolved_by"
           ],
@@ -1097,14 +1097,14 @@
       "checkConstraints": {
         "chat_handovers_status": {
           "name": "chat_handovers_status",
-          "value": "\"alkham\".\"chat_handovers\".\"status\" in ('open', 'taken', 'resolved')"
+          "value": "\"sevshee\".\"chat_handovers\".\"status\" in ('open', 'taken', 'resolved')"
         }
       },
       "isRLSEnabled": true
     },
-    "alkham.chat_messages": {
+    "sevshee.chat_messages": {
       "name": "chat_messages",
-      "schema": "alkham",
+      "schema": "sevshee",
       "columns": {
         "id": {
           "name": "id",
@@ -1222,7 +1222,7 @@
           "name": "chat_messages_conversation_id_chat_conversations_id_fk",
           "tableFrom": "chat_messages",
           "tableTo": "chat_conversations",
-          "schemaTo": "alkham",
+          "schemaTo": "sevshee",
           "columnsFrom": [
             "conversation_id"
           ],
@@ -1236,7 +1236,7 @@
           "name": "chat_messages_staff_user_id_users_id_fk",
           "tableFrom": "chat_messages",
           "tableTo": "users",
-          "schemaTo": "alkham",
+          "schemaTo": "sevshee",
           "columnsFrom": [
             "staff_user_id"
           ],
@@ -1253,14 +1253,14 @@
       "checkConstraints": {
         "chat_messages_role": {
           "name": "chat_messages_role",
-          "value": "\"alkham\".\"chat_messages\".\"role\" in ('customer', 'assistant', 'staff')"
+          "value": "\"sevshee\".\"chat_messages\".\"role\" in ('customer', 'assistant', 'staff')"
         }
       },
       "isRLSEnabled": true
     },
-    "alkham.collections": {
+    "sevshee.collections": {
       "name": "collections",
-      "schema": "alkham",
+      "schema": "sevshee",
       "columns": {
         "id": {
           "name": "id",
@@ -1351,9 +1351,9 @@
       "checkConstraints": {},
       "isRLSEnabled": true
     },
-    "alkham.customers": {
+    "sevshee.customers": {
       "name": "customers",
-      "schema": "alkham",
+      "schema": "sevshee",
       "columns": {
         "id": {
           "name": "id",
@@ -1453,9 +1453,9 @@
       "checkConstraints": {},
       "isRLSEnabled": true
     },
-    "alkham.inventory_transactions": {
+    "sevshee.inventory_transactions": {
       "name": "inventory_transactions",
-      "schema": "alkham",
+      "schema": "sevshee",
       "columns": {
         "id": {
           "name": "id",
@@ -1485,7 +1485,7 @@
         "reason": {
           "name": "reason",
           "type": "inventory_reason",
-          "typeSchema": "alkham",
+          "typeSchema": "sevshee",
           "primaryKey": false,
           "notNull": true
         },
@@ -1564,7 +1564,7 @@
           "name": "inventory_transactions_variant_id_product_variants_id_fk",
           "tableFrom": "inventory_transactions",
           "tableTo": "product_variants",
-          "schemaTo": "alkham",
+          "schemaTo": "sevshee",
           "columnsFrom": [
             "variant_id"
           ],
@@ -1578,7 +1578,7 @@
           "name": "inventory_transactions_order_id_orders_id_fk",
           "tableFrom": "inventory_transactions",
           "tableTo": "orders",
-          "schemaTo": "alkham",
+          "schemaTo": "sevshee",
           "columnsFrom": [
             "order_id"
           ],
@@ -1592,7 +1592,7 @@
           "name": "inventory_transactions_actor_user_id_users_id_fk",
           "tableFrom": "inventory_transactions",
           "tableTo": "users",
-          "schemaTo": "alkham",
+          "schemaTo": "sevshee",
           "columnsFrom": [
             "actor_user_id"
           ],
@@ -1609,18 +1609,18 @@
       "checkConstraints": {
         "inventory_tx_delta_non_zero": {
           "name": "inventory_tx_delta_non_zero",
-          "value": "\"alkham\".\"inventory_transactions\".\"delta\" <> 0"
+          "value": "\"sevshee\".\"inventory_transactions\".\"delta\" <> 0"
         },
         "inventory_tx_stock_after_non_negative": {
           "name": "inventory_tx_stock_after_non_negative",
-          "value": "\"alkham\".\"inventory_transactions\".\"stock_after\" >= 0"
+          "value": "\"sevshee\".\"inventory_transactions\".\"stock_after\" >= 0"
         }
       },
       "isRLSEnabled": true
     },
-    "alkham.newsletter_subscribers": {
+    "sevshee.newsletter_subscribers": {
       "name": "newsletter_subscribers",
-      "schema": "alkham",
+      "schema": "sevshee",
       "columns": {
         "id": {
           "name": "id",
@@ -1673,9 +1673,9 @@
       "checkConstraints": {},
       "isRLSEnabled": true
     },
-    "alkham.order_events": {
+    "sevshee.order_events": {
       "name": "order_events",
-      "schema": "alkham",
+      "schema": "sevshee",
       "columns": {
         "id": {
           "name": "id",
@@ -1693,14 +1693,14 @@
         "from_status": {
           "name": "from_status",
           "type": "order_status",
-          "typeSchema": "alkham",
+          "typeSchema": "sevshee",
           "primaryKey": false,
           "notNull": false
         },
         "to_status": {
           "name": "to_status",
           "type": "order_status",
-          "typeSchema": "alkham",
+          "typeSchema": "sevshee",
           "primaryKey": false,
           "notNull": true
         },
@@ -1758,7 +1758,7 @@
           "name": "order_events_order_id_orders_id_fk",
           "tableFrom": "order_events",
           "tableTo": "orders",
-          "schemaTo": "alkham",
+          "schemaTo": "sevshee",
           "columnsFrom": [
             "order_id"
           ],
@@ -1772,7 +1772,7 @@
           "name": "order_events_actor_user_id_users_id_fk",
           "tableFrom": "order_events",
           "tableTo": "users",
-          "schemaTo": "alkham",
+          "schemaTo": "sevshee",
           "columnsFrom": [
             "actor_user_id"
           ],
@@ -1789,9 +1789,9 @@
       "checkConstraints": {},
       "isRLSEnabled": true
     },
-    "alkham.order_items": {
+    "sevshee.order_items": {
       "name": "order_items",
-      "schema": "alkham",
+      "schema": "sevshee",
       "columns": {
         "id": {
           "name": "id",
@@ -1910,7 +1910,7 @@
           "name": "order_items_order_id_orders_id_fk",
           "tableFrom": "order_items",
           "tableTo": "orders",
-          "schemaTo": "alkham",
+          "schemaTo": "sevshee",
           "columnsFrom": [
             "order_id"
           ],
@@ -1924,7 +1924,7 @@
           "name": "order_items_product_id_products_id_fk",
           "tableFrom": "order_items",
           "tableTo": "products",
-          "schemaTo": "alkham",
+          "schemaTo": "sevshee",
           "columnsFrom": [
             "product_id"
           ],
@@ -1938,7 +1938,7 @@
           "name": "order_items_variant_id_product_variants_id_fk",
           "tableFrom": "order_items",
           "tableTo": "product_variants",
-          "schemaTo": "alkham",
+          "schemaTo": "sevshee",
           "columnsFrom": [
             "variant_id"
           ],
@@ -1955,22 +1955,22 @@
       "checkConstraints": {
         "order_items_unit_price_positive": {
           "name": "order_items_unit_price_positive",
-          "value": "\"alkham\".\"order_items\".\"unit_price\" > 0"
+          "value": "\"sevshee\".\"order_items\".\"unit_price\" > 0"
         },
         "order_items_quantity_range": {
           "name": "order_items_quantity_range",
-          "value": "\"alkham\".\"order_items\".\"quantity\" between 1 and 20"
+          "value": "\"sevshee\".\"order_items\".\"quantity\" between 1 and 20"
         },
         "order_items_line_total": {
           "name": "order_items_line_total",
-          "value": "\"alkham\".\"order_items\".\"line_total\" = \"alkham\".\"order_items\".\"unit_price\" * \"alkham\".\"order_items\".\"quantity\""
+          "value": "\"sevshee\".\"order_items\".\"line_total\" = \"sevshee\".\"order_items\".\"unit_price\" * \"sevshee\".\"order_items\".\"quantity\""
         }
       },
       "isRLSEnabled": true
     },
-    "alkham.orders": {
+    "sevshee.orders": {
       "name": "orders",
-      "schema": "alkham",
+      "schema": "sevshee",
       "columns": {
         "id": {
           "name": "id",
@@ -2000,7 +2000,7 @@
         "status": {
           "name": "status",
           "type": "order_status",
-          "typeSchema": "alkham",
+          "typeSchema": "sevshee",
           "primaryKey": false,
           "notNull": true,
           "default": "'pending'"
@@ -2008,7 +2008,7 @@
         "payment_status": {
           "name": "payment_status",
           "type": "payment_status",
-          "typeSchema": "alkham",
+          "typeSchema": "sevshee",
           "primaryKey": false,
           "notNull": true,
           "default": "'unpaid'"
@@ -2016,7 +2016,7 @@
         "payment_method": {
           "name": "payment_method",
           "type": "payment_method",
-          "typeSchema": "alkham",
+          "typeSchema": "sevshee",
           "primaryKey": false,
           "notNull": true
         },
@@ -2266,7 +2266,7 @@
             }
           ],
           "isUnique": false,
-          "where": "\"alkham\".\"orders\".\"expires_at\" is not null",
+          "where": "\"sevshee\".\"orders\".\"expires_at\" is not null",
           "concurrently": false,
           "method": "btree",
           "with": {}
@@ -2277,7 +2277,7 @@
           "name": "orders_customer_id_customers_id_fk",
           "tableFrom": "orders",
           "tableTo": "customers",
-          "schemaTo": "alkham",
+          "schemaTo": "sevshee",
           "columnsFrom": [
             "customer_id"
           ],
@@ -2291,7 +2291,7 @@
           "name": "orders_conversation_id_chat_conversations_id_fk",
           "tableFrom": "orders",
           "tableTo": "chat_conversations",
-          "schemaTo": "alkham",
+          "schemaTo": "sevshee",
           "columnsFrom": [
             "conversation_id"
           ],
@@ -2323,22 +2323,22 @@
       "checkConstraints": {
         "orders_amounts_non_negative": {
           "name": "orders_amounts_non_negative",
-          "value": "\"alkham\".\"orders\".\"subtotal\" >= 0 and \"alkham\".\"orders\".\"shipping_fee\" >= 0"
+          "value": "\"sevshee\".\"orders\".\"subtotal\" >= 0 and \"sevshee\".\"orders\".\"shipping_fee\" >= 0"
         },
         "orders_total_matches": {
           "name": "orders_total_matches",
-          "value": "\"alkham\".\"orders\".\"total\" = \"alkham\".\"orders\".\"subtotal\" + \"alkham\".\"orders\".\"shipping_fee\""
+          "value": "\"sevshee\".\"orders\".\"total\" = \"sevshee\".\"orders\".\"subtotal\" + \"sevshee\".\"orders\".\"shipping_fee\""
         },
         "orders_item_count_positive": {
           "name": "orders_item_count_positive",
-          "value": "\"alkham\".\"orders\".\"item_count\" > 0"
+          "value": "\"sevshee\".\"orders\".\"item_count\" > 0"
         }
       },
       "isRLSEnabled": true
     },
-    "alkham.payments": {
+    "sevshee.payments": {
       "name": "payments",
-      "schema": "alkham",
+      "schema": "sevshee",
       "columns": {
         "id": {
           "name": "id",
@@ -2439,7 +2439,7 @@
           "name": "payments_order_id_orders_id_fk",
           "tableFrom": "payments",
           "tableTo": "orders",
-          "schemaTo": "alkham",
+          "schemaTo": "sevshee",
           "columnsFrom": [
             "order_id"
           ],
@@ -2456,14 +2456,14 @@
       "checkConstraints": {
         "payments_amount_positive": {
           "name": "payments_amount_positive",
-          "value": "\"alkham\".\"payments\".\"amount\" > 0"
+          "value": "\"sevshee\".\"payments\".\"amount\" > 0"
         }
       },
       "isRLSEnabled": true
     },
-    "alkham.product_collections": {
+    "sevshee.product_collections": {
       "name": "product_collections",
-      "schema": "alkham",
+      "schema": "sevshee",
       "columns": {
         "product_id": {
           "name": "product_id",
@@ -2507,7 +2507,7 @@
           "name": "product_collections_product_id_products_id_fk",
           "tableFrom": "product_collections",
           "tableTo": "products",
-          "schemaTo": "alkham",
+          "schemaTo": "sevshee",
           "columnsFrom": [
             "product_id"
           ],
@@ -2521,7 +2521,7 @@
           "name": "product_collections_collection_id_collections_id_fk",
           "tableFrom": "product_collections",
           "tableTo": "collections",
-          "schemaTo": "alkham",
+          "schemaTo": "sevshee",
           "columnsFrom": [
             "collection_id"
           ],
@@ -2546,9 +2546,9 @@
       "checkConstraints": {},
       "isRLSEnabled": true
     },
-    "alkham.product_colors": {
+    "sevshee.product_colors": {
       "name": "product_colors",
-      "schema": "alkham",
+      "schema": "sevshee",
       "columns": {
         "id": {
           "name": "id",
@@ -2617,7 +2617,7 @@
           "name": "product_colors_product_id_products_id_fk",
           "tableFrom": "product_colors",
           "tableTo": "products",
-          "schemaTo": "alkham",
+          "schemaTo": "sevshee",
           "columnsFrom": [
             "product_id"
           ],
@@ -2634,9 +2634,9 @@
       "checkConstraints": {},
       "isRLSEnabled": true
     },
-    "alkham.product_images": {
+    "sevshee.product_images": {
       "name": "product_images",
-      "schema": "alkham",
+      "schema": "sevshee",
       "columns": {
         "id": {
           "name": "id",
@@ -2732,7 +2732,7 @@
           "name": "product_images_product_id_products_id_fk",
           "tableFrom": "product_images",
           "tableTo": "products",
-          "schemaTo": "alkham",
+          "schemaTo": "sevshee",
           "columnsFrom": [
             "product_id"
           ],
@@ -2746,7 +2746,7 @@
           "name": "product_images_color_id_product_colors_id_fk",
           "tableFrom": "product_images",
           "tableTo": "product_colors",
-          "schemaTo": "alkham",
+          "schemaTo": "sevshee",
           "columnsFrom": [
             "color_id"
           ],
@@ -2763,9 +2763,9 @@
       "checkConstraints": {},
       "isRLSEnabled": true
     },
-    "alkham.product_variants": {
+    "sevshee.product_variants": {
       "name": "product_variants",
-      "schema": "alkham",
+      "schema": "sevshee",
       "columns": {
         "id": {
           "name": "id",
@@ -2896,7 +2896,7 @@
           "name": "product_variants_product_id_products_id_fk",
           "tableFrom": "product_variants",
           "tableTo": "products",
-          "schemaTo": "alkham",
+          "schemaTo": "sevshee",
           "columnsFrom": [
             "product_id"
           ],
@@ -2910,7 +2910,7 @@
           "name": "product_variants_color_id_product_colors_id_fk",
           "tableFrom": "product_variants",
           "tableTo": "product_colors",
-          "schemaTo": "alkham",
+          "schemaTo": "sevshee",
           "columnsFrom": [
             "color_id"
           ],
@@ -2935,22 +2935,22 @@
       "checkConstraints": {
         "product_variants_stock_non_negative": {
           "name": "product_variants_stock_non_negative",
-          "value": "\"alkham\".\"product_variants\".\"stock\" >= 0"
+          "value": "\"sevshee\".\"product_variants\".\"stock\" >= 0"
         },
         "product_variants_price_positive": {
           "name": "product_variants_price_positive",
-          "value": "\"alkham\".\"product_variants\".\"price_override\" is null or \"alkham\".\"product_variants\".\"price_override\" > 0"
+          "value": "\"sevshee\".\"product_variants\".\"price_override\" is null or \"sevshee\".\"product_variants\".\"price_override\" > 0"
         },
         "product_variants_threshold_non_negative": {
           "name": "product_variants_threshold_non_negative",
-          "value": "\"alkham\".\"product_variants\".\"low_stock_threshold\" >= 0"
+          "value": "\"sevshee\".\"product_variants\".\"low_stock_threshold\" >= 0"
         }
       },
       "isRLSEnabled": true
     },
-    "alkham.products": {
+    "sevshee.products": {
       "name": "products",
-      "schema": "alkham",
+      "schema": "sevshee",
       "columns": {
         "id": {
           "name": "id",
@@ -2980,7 +2980,7 @@
         "audience": {
           "name": "audience",
           "type": "audience",
-          "typeSchema": "alkham",
+          "typeSchema": "sevshee",
           "primaryKey": false,
           "notNull": true,
           "default": "'unisex'"
@@ -3024,7 +3024,7 @@
         "status": {
           "name": "status",
           "type": "product_status",
-          "typeSchema": "alkham",
+          "typeSchema": "sevshee",
           "primaryKey": false,
           "notNull": true,
           "default": "'draft'"
@@ -3140,7 +3140,7 @@
           "name": "products_category_id_categories_id_fk",
           "tableFrom": "products",
           "tableTo": "categories",
-          "schemaTo": "alkham",
+          "schemaTo": "sevshee",
           "columnsFrom": [
             "category_id"
           ],
@@ -3165,14 +3165,14 @@
       "checkConstraints": {
         "products_base_price_positive": {
           "name": "products_base_price_positive",
-          "value": "\"alkham\".\"products\".\"base_price\" > 0"
+          "value": "\"sevshee\".\"products\".\"base_price\" > 0"
         }
       },
       "isRLSEnabled": true
     },
-    "alkham.rate_limits": {
+    "sevshee.rate_limits": {
       "name": "rate_limits",
-      "schema": "alkham",
+      "schema": "sevshee",
       "columns": {
         "key": {
           "name": "key",
@@ -3201,9 +3201,9 @@
       "checkConstraints": {},
       "isRLSEnabled": true
     },
-    "alkham.sessions": {
+    "sevshee.sessions": {
       "name": "sessions",
-      "schema": "alkham",
+      "schema": "sevshee",
       "columns": {
         "id": {
           "name": "id",
@@ -3265,7 +3265,7 @@
           "name": "sessions_user_id_users_id_fk",
           "tableFrom": "sessions",
           "tableTo": "users",
-          "schemaTo": "alkham",
+          "schemaTo": "sevshee",
           "columnsFrom": [
             "user_id"
           ],
@@ -3282,9 +3282,9 @@
       "checkConstraints": {},
       "isRLSEnabled": true
     },
-    "alkham.settings": {
+    "sevshee.settings": {
       "name": "settings",
-      "schema": "alkham",
+      "schema": "sevshee",
       "columns": {
         "key": {
           "name": "key",
@@ -3318,7 +3318,7 @@
           "name": "settings_updated_by_users_id_fk",
           "tableFrom": "settings",
           "tableTo": "users",
-          "schemaTo": "alkham",
+          "schemaTo": "sevshee",
           "columnsFrom": [
             "updated_by"
           ],
@@ -3335,9 +3335,9 @@
       "checkConstraints": {},
       "isRLSEnabled": true
     },
-    "alkham.shipping_methods": {
+    "sevshee.shipping_methods": {
       "name": "shipping_methods",
-      "schema": "alkham",
+      "schema": "sevshee",
       "columns": {
         "id": {
           "name": "id",
@@ -3433,18 +3433,18 @@
       "checkConstraints": {
         "shipping_methods_fee_non_negative": {
           "name": "shipping_methods_fee_non_negative",
-          "value": "\"alkham\".\"shipping_methods\".\"fee\" >= 0"
+          "value": "\"sevshee\".\"shipping_methods\".\"fee\" >= 0"
         },
         "shipping_methods_region": {
           "name": "shipping_methods_region",
-          "value": "\"alkham\".\"shipping_methods\".\"region\" in ('ub', 'countryside')"
+          "value": "\"sevshee\".\"shipping_methods\".\"region\" in ('ub', 'countryside')"
         }
       },
       "isRLSEnabled": true
     },
-    "alkham.users": {
+    "sevshee.users": {
       "name": "users",
-      "schema": "alkham",
+      "schema": "sevshee",
       "columns": {
         "id": {
           "name": "id",
@@ -3474,7 +3474,7 @@
         "role": {
           "name": "role",
           "type": "user_role",
-          "typeSchema": "alkham",
+          "typeSchema": "sevshee",
           "primaryKey": false,
           "notNull": true
         },
@@ -3524,18 +3524,18 @@
     }
   },
   "enums": {
-    "alkham.audience": {
+    "sevshee.audience": {
       "name": "audience",
-      "schema": "alkham",
+      "schema": "sevshee",
       "values": [
         "women",
         "men",
         "unisex"
       ]
     },
-    "alkham.inventory_reason": {
+    "sevshee.inventory_reason": {
       "name": "inventory_reason",
-      "schema": "alkham",
+      "schema": "sevshee",
       "values": [
         "initial",
         "order_reserved",
@@ -3546,9 +3546,9 @@
         "return"
       ]
     },
-    "alkham.order_status": {
+    "sevshee.order_status": {
       "name": "order_status",
-      "schema": "alkham",
+      "schema": "sevshee",
       "values": [
         "pending",
         "confirmed",
@@ -3558,17 +3558,17 @@
         "cancelled"
       ]
     },
-    "alkham.payment_method": {
+    "sevshee.payment_method": {
       "name": "payment_method",
-      "schema": "alkham",
+      "schema": "sevshee",
       "values": [
         "qpay",
         "cash_on_delivery"
       ]
     },
-    "alkham.payment_status": {
+    "sevshee.payment_status": {
       "name": "payment_status",
-      "schema": "alkham",
+      "schema": "sevshee",
       "values": [
         "unpaid",
         "simulated",
@@ -3576,18 +3576,18 @@
         "refunded"
       ]
     },
-    "alkham.product_status": {
+    "sevshee.product_status": {
       "name": "product_status",
-      "schema": "alkham",
+      "schema": "sevshee",
       "values": [
         "draft",
         "active",
         "archived"
       ]
     },
-    "alkham.user_role": {
+    "sevshee.user_role": {
       "name": "user_role",
-      "schema": "alkham",
+      "schema": "sevshee",
       "values": [
         "owner",
         "manager",
@@ -3597,12 +3597,12 @@
     }
   },
   "schemas": {
-    "alkham": "alkham"
+    "sevshee": "sevshee"
   },
   "sequences": {
-    "alkham.order_number_seq": {
+    "sevshee.order_number_seq": {
       "name": "order_number_seq",
-      "schema": "alkham",
+      "schema": "sevshee",
       "increment": "1",
       "startWith": "10001",
       "minValue": "1",

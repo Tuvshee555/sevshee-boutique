@@ -233,7 +233,7 @@ export function stockAnswer(tc: ToolContext, p: CatalogProduct, u: Understood, f
     text: lines.join('\n'),
     productIds: [p.id],
     actions: [...actions, pageAction(p)],
-    suggestions: q.sizes.length === 0 ? ['Размерын хүснэгт', 'Хүргэлт хэд хоног вэ?'] : ['Авъя', 'Хүргэлт хэд хоног вэ?'],
+    suggestions: q.sizes.length === 0 ? ['Хэмжээний хүснэгт', 'Хүргэлт хэд хоног вэ?'] : ['Авъя', 'Хүргэлт хэд хоног вэ?'],
     events,
     focus: focusFor(p, q, now, focus),
   }
@@ -408,7 +408,7 @@ export function sizeAdviceAnswer(tc: ToolContext, p: CatalogProduct | null, text
     } else {
       lines.push(`${label} ${measure.cm} см манай хэмжээний хүснэгтэд (${guide.rows.map((row) => row.size).join(', ')}) багтахгүй байна — ажилтнаас тодруулаарай.`)
     }
-    lines.push('Бүтэн хүснэгт: [размерын хүснэгт](/size-guide). Эргэлзвэл «ажилтантай холбогдох» гэж бичээрэй — ажилтан тусална.')
+    lines.push('Бүтэн хүснэгт: [хэмжээний хүснэгт](/size-guide). Эргэлзвэл «ажилтантай холбогдох» гэж бичээрэй — ажилтан тусална.')
   } else {
     if (p) lines.push(`${quote(p)}${p.fit ? ` — хэлбэр: ${p.fit}.` : '.'}`)
     lines.push(
@@ -419,13 +419,13 @@ export function sizeAdviceAnswer(tc: ToolContext, p: CatalogProduct | null, text
     lines.push(`${['Хэмжээ', ...guide.columns].join(' · ')}`)
     for (const row of guide.rows) lines.push(`- ${row.size}: ${guide.columns.map((c) => row[c]).join(' · ')}`)
     if (note) lines.push(note)
-    lines.push('Бүтэн хүснэгт: [размерын хүснэгт](/size-guide). Эргэлзвэл «ажилтантай холбогдох» гэж бичээрэй — ажилтан тусална.')
+    lines.push('Бүтэн хүснэгт: [хэмжээний хүснэгт](/size-guide). Эргэлзвэл «ажилтантай холбогдох» гэж бичээрэй — ажилтан тусална.')
   }
   return {
     text: lines.join('\n'),
     productIds: p ? [p.id] : [],
-    actions: [{ type: 'link', href: '/size-guide', label: 'Размерын хүснэгт' }],
-    suggestions: oneSize ? ['Үнэ хэд вэ?'] : ['Ажилтантай холбогдох', 'Размер солих нөхцөл'],
+    actions: [{ type: 'link', href: '/size-guide', label: 'Хэмжээний хүснэгт' }],
+    suggestions: oneSize ? ['Үнэ хэд вэ?'] : ['Ажилтантай холбогдох', 'Хэмжээ солих нөхцөл'],
     events: ['size_guide'],
   }
 }
@@ -522,7 +522,7 @@ export function policyAnswer(tc: ToolContext, topic: PolicyTopic): Answer {
       return {
         ...base,
         text: [`**${policy.title}**`, ...paragraphs(policy.body).slice(0, 5), `Дэлгэрэнгүй: ${policyLink(topic, policy.title)}`].join('\n\n'),
-        suggestions: topic === 'exchange' ? ['Размерын хүснэгт', 'Буцаах нөхцөл ямар вэ?'] : ['Хүргэлт хэд хоног вэ?', 'Яаж захиалах вэ?'],
+        suggestions: topic === 'exchange' ? ['Хэмжээний хүснэгт', 'Буцаах нөхцөл ямар вэ?'] : ['Хүргэлт хэд хоног вэ?', 'Яаж захиалах вэ?'],
       }
     }
     case 'ordering': {

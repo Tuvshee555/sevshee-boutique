@@ -177,7 +177,7 @@ export async function createOrderInTx(tx: Database, ctx: ServiceContext, args: C
     customerId = created.id
   }
 
-  const seq = await tx.execute<{ n: string }>(sql`select nextval('alkham.order_number_seq')::text as n`)
+  const seq = await tx.execute<{ n: string }>(sql`select nextval('sevshee.order_number_seq')::text as n`)
   const number = `MN-${seq.rows[0].n}`
   const accessToken = randomToken(24)
 

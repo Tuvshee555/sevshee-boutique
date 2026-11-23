@@ -1,14 +1,14 @@
-CREATE SCHEMA "alkham";
+CREATE SCHEMA "sevshee";
 --> statement-breakpoint
-CREATE TYPE "alkham"."audience" AS ENUM('women', 'men', 'unisex');--> statement-breakpoint
-CREATE TYPE "alkham"."inventory_reason" AS ENUM('initial', 'order_reserved', 'order_cancelled', 'restock', 'adjustment', 'damaged', 'return');--> statement-breakpoint
-CREATE TYPE "alkham"."order_status" AS ENUM('pending', 'confirmed', 'processing', 'shipped', 'delivered', 'cancelled');--> statement-breakpoint
-CREATE TYPE "alkham"."payment_method" AS ENUM('qpay', 'cash_on_delivery');--> statement-breakpoint
-CREATE TYPE "alkham"."payment_status" AS ENUM('unpaid', 'simulated', 'paid', 'refunded');--> statement-breakpoint
-CREATE TYPE "alkham"."product_status" AS ENUM('draft', 'active', 'archived');--> statement-breakpoint
-CREATE TYPE "alkham"."user_role" AS ENUM('owner', 'manager', 'staff', 'demo');--> statement-breakpoint
-CREATE SEQUENCE "alkham"."order_number_seq" INCREMENT BY 1 MINVALUE 1 MAXVALUE 9223372036854775807 START WITH 10001 CACHE 1;--> statement-breakpoint
-CREATE TABLE "alkham"."ai_usage" (
+CREATE TYPE "sevshee"."audience" AS ENUM('women', 'men', 'unisex');--> statement-breakpoint
+CREATE TYPE "sevshee"."inventory_reason" AS ENUM('initial', 'order_reserved', 'order_cancelled', 'restock', 'adjustment', 'damaged', 'return');--> statement-breakpoint
+CREATE TYPE "sevshee"."order_status" AS ENUM('pending', 'confirmed', 'processing', 'shipped', 'delivered', 'cancelled');--> statement-breakpoint
+CREATE TYPE "sevshee"."payment_method" AS ENUM('qpay', 'cash_on_delivery');--> statement-breakpoint
+CREATE TYPE "sevshee"."payment_status" AS ENUM('unpaid', 'simulated', 'paid', 'refunded');--> statement-breakpoint
+CREATE TYPE "sevshee"."product_status" AS ENUM('draft', 'active', 'archived');--> statement-breakpoint
+CREATE TYPE "sevshee"."user_role" AS ENUM('owner', 'manager', 'staff', 'demo');--> statement-breakpoint
+CREATE SEQUENCE "sevshee"."order_number_seq" INCREMENT BY 1 MINVALUE 1 MAXVALUE 9223372036854775807 START WITH 10001 CACHE 1;--> statement-breakpoint
+CREATE TABLE "sevshee"."ai_usage" (
 	"id" uuid PRIMARY KEY DEFAULT gen_random_uuid() NOT NULL,
 	"mode" text NOT NULL,
 	"model" text,
@@ -21,8 +21,8 @@ CREATE TABLE "alkham"."ai_usage" (
 	"created_at" timestamp with time zone DEFAULT now() NOT NULL
 );
 --> statement-breakpoint
-ALTER TABLE "alkham"."ai_usage" ENABLE ROW LEVEL SECURITY;--> statement-breakpoint
-CREATE TABLE "alkham"."audit_logs" (
+ALTER TABLE "sevshee"."ai_usage" ENABLE ROW LEVEL SECURITY;--> statement-breakpoint
+CREATE TABLE "sevshee"."audit_logs" (
 	"id" uuid PRIMARY KEY DEFAULT gen_random_uuid() NOT NULL,
 	"actor_user_id" uuid,
 	"actor_role" text NOT NULL,
@@ -33,19 +33,19 @@ CREATE TABLE "alkham"."audit_logs" (
 	"created_at" timestamp with time zone DEFAULT now() NOT NULL
 );
 --> statement-breakpoint
-ALTER TABLE "alkham"."audit_logs" ENABLE ROW LEVEL SECURITY;--> statement-breakpoint
-CREATE TABLE "alkham"."cart_items" (
+ALTER TABLE "sevshee"."audit_logs" ENABLE ROW LEVEL SECURITY;--> statement-breakpoint
+CREATE TABLE "sevshee"."cart_items" (
 	"id" uuid PRIMARY KEY DEFAULT gen_random_uuid() NOT NULL,
 	"cart_id" uuid NOT NULL,
 	"variant_id" uuid NOT NULL,
 	"quantity" integer NOT NULL,
 	"created_at" timestamp with time zone DEFAULT now() NOT NULL,
 	"updated_at" timestamp with time zone DEFAULT now() NOT NULL,
-	CONSTRAINT "cart_items_quantity_range" CHECK ("alkham"."cart_items"."quantity" between 1 and 20)
+	CONSTRAINT "cart_items_quantity_range" CHECK ("sevshee"."cart_items"."quantity" between 1 and 20)
 );
 --> statement-breakpoint
-ALTER TABLE "alkham"."cart_items" ENABLE ROW LEVEL SECURITY;--> statement-breakpoint
-CREATE TABLE "alkham"."carts" (
+ALTER TABLE "sevshee"."cart_items" ENABLE ROW LEVEL SECURITY;--> statement-breakpoint
+CREATE TABLE "sevshee"."carts" (
 	"id" uuid PRIMARY KEY DEFAULT gen_random_uuid() NOT NULL,
 	"token_hash" text NOT NULL,
 	"visitor_id" text NOT NULL,
@@ -55,8 +55,8 @@ CREATE TABLE "alkham"."carts" (
 	CONSTRAINT "carts_tokenHash_unique" UNIQUE("token_hash")
 );
 --> statement-breakpoint
-ALTER TABLE "alkham"."carts" ENABLE ROW LEVEL SECURITY;--> statement-breakpoint
-CREATE TABLE "alkham"."categories" (
+ALTER TABLE "sevshee"."carts" ENABLE ROW LEVEL SECURITY;--> statement-breakpoint
+CREATE TABLE "sevshee"."categories" (
 	"id" uuid PRIMARY KEY DEFAULT gen_random_uuid() NOT NULL,
 	"slug" text NOT NULL,
 	"name" text NOT NULL,
@@ -69,8 +69,8 @@ CREATE TABLE "alkham"."categories" (
 	CONSTRAINT "categories_slug_unique" UNIQUE("slug")
 );
 --> statement-breakpoint
-ALTER TABLE "alkham"."categories" ENABLE ROW LEVEL SECURITY;--> statement-breakpoint
-CREATE TABLE "alkham"."collections" (
+ALTER TABLE "sevshee"."categories" ENABLE ROW LEVEL SECURITY;--> statement-breakpoint
+CREATE TABLE "sevshee"."collections" (
 	"id" uuid PRIMARY KEY DEFAULT gen_random_uuid() NOT NULL,
 	"slug" text NOT NULL,
 	"name" text NOT NULL,
@@ -85,8 +85,8 @@ CREATE TABLE "alkham"."collections" (
 	CONSTRAINT "collections_slug_unique" UNIQUE("slug")
 );
 --> statement-breakpoint
-ALTER TABLE "alkham"."collections" ENABLE ROW LEVEL SECURITY;--> statement-breakpoint
-CREATE TABLE "alkham"."customers" (
+ALTER TABLE "sevshee"."collections" ENABLE ROW LEVEL SECURITY;--> statement-breakpoint
+CREATE TABLE "sevshee"."customers" (
 	"id" uuid PRIMARY KEY DEFAULT gen_random_uuid() NOT NULL,
 	"name" text NOT NULL,
 	"phone" text NOT NULL,
@@ -97,24 +97,24 @@ CREATE TABLE "alkham"."customers" (
 	"updated_at" timestamp with time zone DEFAULT now() NOT NULL
 );
 --> statement-breakpoint
-ALTER TABLE "alkham"."customers" ENABLE ROW LEVEL SECURITY;--> statement-breakpoint
-CREATE TABLE "alkham"."inventory_transactions" (
+ALTER TABLE "sevshee"."customers" ENABLE ROW LEVEL SECURITY;--> statement-breakpoint
+CREATE TABLE "sevshee"."inventory_transactions" (
 	"id" uuid PRIMARY KEY DEFAULT gen_random_uuid() NOT NULL,
 	"variant_id" uuid NOT NULL,
 	"delta" integer NOT NULL,
 	"stock_after" integer NOT NULL,
-	"reason" "alkham"."inventory_reason" NOT NULL,
+	"reason" "sevshee"."inventory_reason" NOT NULL,
 	"note" text,
 	"order_id" uuid,
 	"actor_user_id" uuid,
 	"actor_label" text NOT NULL,
 	"created_at" timestamp with time zone DEFAULT now() NOT NULL,
-	CONSTRAINT "inventory_tx_delta_non_zero" CHECK ("alkham"."inventory_transactions"."delta" <> 0),
-	CONSTRAINT "inventory_tx_stock_after_non_negative" CHECK ("alkham"."inventory_transactions"."stock_after" >= 0)
+	CONSTRAINT "inventory_tx_delta_non_zero" CHECK ("sevshee"."inventory_transactions"."delta" <> 0),
+	CONSTRAINT "inventory_tx_stock_after_non_negative" CHECK ("sevshee"."inventory_transactions"."stock_after" >= 0)
 );
 --> statement-breakpoint
-ALTER TABLE "alkham"."inventory_transactions" ENABLE ROW LEVEL SECURITY;--> statement-breakpoint
-CREATE TABLE "alkham"."newsletter_subscribers" (
+ALTER TABLE "sevshee"."inventory_transactions" ENABLE ROW LEVEL SECURITY;--> statement-breakpoint
+CREATE TABLE "sevshee"."newsletter_subscribers" (
 	"id" uuid PRIMARY KEY DEFAULT gen_random_uuid() NOT NULL,
 	"email" text NOT NULL,
 	"source" text DEFAULT 'footer' NOT NULL,
@@ -123,20 +123,20 @@ CREATE TABLE "alkham"."newsletter_subscribers" (
 	CONSTRAINT "newsletter_subscribers_email_unique" UNIQUE("email")
 );
 --> statement-breakpoint
-ALTER TABLE "alkham"."newsletter_subscribers" ENABLE ROW LEVEL SECURITY;--> statement-breakpoint
-CREATE TABLE "alkham"."order_events" (
+ALTER TABLE "sevshee"."newsletter_subscribers" ENABLE ROW LEVEL SECURITY;--> statement-breakpoint
+CREATE TABLE "sevshee"."order_events" (
 	"id" uuid PRIMARY KEY DEFAULT gen_random_uuid() NOT NULL,
 	"order_id" uuid NOT NULL,
-	"from_status" "alkham"."order_status",
-	"to_status" "alkham"."order_status" NOT NULL,
+	"from_status" "sevshee"."order_status",
+	"to_status" "sevshee"."order_status" NOT NULL,
 	"note" text,
 	"actor_user_id" uuid,
 	"actor_label" text NOT NULL,
 	"created_at" timestamp with time zone DEFAULT now() NOT NULL
 );
 --> statement-breakpoint
-ALTER TABLE "alkham"."order_events" ENABLE ROW LEVEL SECURITY;--> statement-breakpoint
-CREATE TABLE "alkham"."order_items" (
+ALTER TABLE "sevshee"."order_events" ENABLE ROW LEVEL SECURITY;--> statement-breakpoint
+CREATE TABLE "sevshee"."order_items" (
 	"id" uuid PRIMARY KEY DEFAULT gen_random_uuid() NOT NULL,
 	"order_id" uuid NOT NULL,
 	"product_id" uuid,
@@ -150,20 +150,20 @@ CREATE TABLE "alkham"."order_items" (
 	"unit_price" integer NOT NULL,
 	"quantity" integer NOT NULL,
 	"line_total" integer NOT NULL,
-	CONSTRAINT "order_items_unit_price_positive" CHECK ("alkham"."order_items"."unit_price" > 0),
-	CONSTRAINT "order_items_quantity_range" CHECK ("alkham"."order_items"."quantity" between 1 and 20),
-	CONSTRAINT "order_items_line_total" CHECK ("alkham"."order_items"."line_total" = "alkham"."order_items"."unit_price" * "alkham"."order_items"."quantity")
+	CONSTRAINT "order_items_unit_price_positive" CHECK ("sevshee"."order_items"."unit_price" > 0),
+	CONSTRAINT "order_items_quantity_range" CHECK ("sevshee"."order_items"."quantity" between 1 and 20),
+	CONSTRAINT "order_items_line_total" CHECK ("sevshee"."order_items"."line_total" = "sevshee"."order_items"."unit_price" * "sevshee"."order_items"."quantity")
 );
 --> statement-breakpoint
-ALTER TABLE "alkham"."order_items" ENABLE ROW LEVEL SECURITY;--> statement-breakpoint
-CREATE TABLE "alkham"."orders" (
+ALTER TABLE "sevshee"."order_items" ENABLE ROW LEVEL SECURITY;--> statement-breakpoint
+CREATE TABLE "sevshee"."orders" (
 	"id" uuid PRIMARY KEY DEFAULT gen_random_uuid() NOT NULL,
 	"number" text NOT NULL,
 	"visitor_id" text,
 	"customer_id" uuid NOT NULL,
-	"status" "alkham"."order_status" DEFAULT 'pending' NOT NULL,
-	"payment_status" "alkham"."payment_status" DEFAULT 'unpaid' NOT NULL,
-	"payment_method" "alkham"."payment_method" NOT NULL,
+	"status" "sevshee"."order_status" DEFAULT 'pending' NOT NULL,
+	"payment_status" "sevshee"."payment_status" DEFAULT 'unpaid' NOT NULL,
+	"payment_method" "sevshee"."payment_method" NOT NULL,
 	"customer_name" text NOT NULL,
 	"customer_phone" text NOT NULL,
 	"customer_email" text,
@@ -188,13 +188,13 @@ CREATE TABLE "alkham"."orders" (
 	"created_at" timestamp with time zone DEFAULT now() NOT NULL,
 	"updated_at" timestamp with time zone DEFAULT now() NOT NULL,
 	CONSTRAINT "orders_number_unique" UNIQUE("number"),
-	CONSTRAINT "orders_amounts_non_negative" CHECK ("alkham"."orders"."subtotal" >= 0 and "alkham"."orders"."shipping_fee" >= 0),
-	CONSTRAINT "orders_total_matches" CHECK ("alkham"."orders"."total" = "alkham"."orders"."subtotal" + "alkham"."orders"."shipping_fee"),
-	CONSTRAINT "orders_item_count_positive" CHECK ("alkham"."orders"."item_count" > 0)
+	CONSTRAINT "orders_amounts_non_negative" CHECK ("sevshee"."orders"."subtotal" >= 0 and "sevshee"."orders"."shipping_fee" >= 0),
+	CONSTRAINT "orders_total_matches" CHECK ("sevshee"."orders"."total" = "sevshee"."orders"."subtotal" + "sevshee"."orders"."shipping_fee"),
+	CONSTRAINT "orders_item_count_positive" CHECK ("sevshee"."orders"."item_count" > 0)
 );
 --> statement-breakpoint
-ALTER TABLE "alkham"."orders" ENABLE ROW LEVEL SECURITY;--> statement-breakpoint
-CREATE TABLE "alkham"."payments" (
+ALTER TABLE "sevshee"."orders" ENABLE ROW LEVEL SECURITY;--> statement-breakpoint
+CREATE TABLE "sevshee"."payments" (
 	"id" uuid PRIMARY KEY DEFAULT gen_random_uuid() NOT NULL,
 	"order_id" uuid NOT NULL,
 	"provider" text NOT NULL,
@@ -207,19 +207,19 @@ CREATE TABLE "alkham"."payments" (
 	"paid_at" timestamp with time zone,
 	"created_at" timestamp with time zone DEFAULT now() NOT NULL,
 	"updated_at" timestamp with time zone DEFAULT now() NOT NULL,
-	CONSTRAINT "payments_amount_positive" CHECK ("alkham"."payments"."amount" > 0)
+	CONSTRAINT "payments_amount_positive" CHECK ("sevshee"."payments"."amount" > 0)
 );
 --> statement-breakpoint
-ALTER TABLE "alkham"."payments" ENABLE ROW LEVEL SECURITY;--> statement-breakpoint
-CREATE TABLE "alkham"."product_collections" (
+ALTER TABLE "sevshee"."payments" ENABLE ROW LEVEL SECURITY;--> statement-breakpoint
+CREATE TABLE "sevshee"."product_collections" (
 	"product_id" uuid NOT NULL,
 	"collection_id" uuid NOT NULL,
 	"sort_order" integer DEFAULT 0 NOT NULL,
 	CONSTRAINT "product_collections_product_id_collection_id_pk" PRIMARY KEY("product_id","collection_id")
 );
 --> statement-breakpoint
-ALTER TABLE "alkham"."product_collections" ENABLE ROW LEVEL SECURITY;--> statement-breakpoint
-CREATE TABLE "alkham"."product_colors" (
+ALTER TABLE "sevshee"."product_collections" ENABLE ROW LEVEL SECURITY;--> statement-breakpoint
+CREATE TABLE "sevshee"."product_colors" (
 	"id" uuid PRIMARY KEY DEFAULT gen_random_uuid() NOT NULL,
 	"product_id" uuid NOT NULL,
 	"code" text NOT NULL,
@@ -228,8 +228,8 @@ CREATE TABLE "alkham"."product_colors" (
 	"sort_order" integer DEFAULT 0 NOT NULL
 );
 --> statement-breakpoint
-ALTER TABLE "alkham"."product_colors" ENABLE ROW LEVEL SECURITY;--> statement-breakpoint
-CREATE TABLE "alkham"."product_images" (
+ALTER TABLE "sevshee"."product_colors" ENABLE ROW LEVEL SECURITY;--> statement-breakpoint
+CREATE TABLE "sevshee"."product_images" (
 	"id" uuid PRIMARY KEY DEFAULT gen_random_uuid() NOT NULL,
 	"product_id" uuid NOT NULL,
 	"color_id" uuid,
@@ -242,8 +242,8 @@ CREATE TABLE "alkham"."product_images" (
 	"created_at" timestamp with time zone DEFAULT now() NOT NULL
 );
 --> statement-breakpoint
-ALTER TABLE "alkham"."product_images" ENABLE ROW LEVEL SECURITY;--> statement-breakpoint
-CREATE TABLE "alkham"."product_variants" (
+ALTER TABLE "sevshee"."product_images" ENABLE ROW LEVEL SECURITY;--> statement-breakpoint
+CREATE TABLE "sevshee"."product_variants" (
 	"id" uuid PRIMARY KEY DEFAULT gen_random_uuid() NOT NULL,
 	"product_id" uuid NOT NULL,
 	"color_id" uuid NOT NULL,
@@ -257,25 +257,25 @@ CREATE TABLE "alkham"."product_variants" (
 	"created_at" timestamp with time zone DEFAULT now() NOT NULL,
 	"updated_at" timestamp with time zone DEFAULT now() NOT NULL,
 	CONSTRAINT "product_variants_sku_unique" UNIQUE("sku"),
-	CONSTRAINT "product_variants_stock_non_negative" CHECK ("alkham"."product_variants"."stock" >= 0),
-	CONSTRAINT "product_variants_price_positive" CHECK ("alkham"."product_variants"."price_override" is null or "alkham"."product_variants"."price_override" > 0),
-	CONSTRAINT "product_variants_threshold_non_negative" CHECK ("alkham"."product_variants"."low_stock_threshold" >= 0)
+	CONSTRAINT "product_variants_stock_non_negative" CHECK ("sevshee"."product_variants"."stock" >= 0),
+	CONSTRAINT "product_variants_price_positive" CHECK ("sevshee"."product_variants"."price_override" is null or "sevshee"."product_variants"."price_override" > 0),
+	CONSTRAINT "product_variants_threshold_non_negative" CHECK ("sevshee"."product_variants"."low_stock_threshold" >= 0)
 );
 --> statement-breakpoint
-ALTER TABLE "alkham"."product_variants" ENABLE ROW LEVEL SECURITY;--> statement-breakpoint
-CREATE TABLE "alkham"."products" (
+ALTER TABLE "sevshee"."product_variants" ENABLE ROW LEVEL SECURITY;--> statement-breakpoint
+CREATE TABLE "sevshee"."products" (
 	"id" uuid PRIMARY KEY DEFAULT gen_random_uuid() NOT NULL,
 	"slug" text NOT NULL,
 	"name" text NOT NULL,
 	"category_id" uuid NOT NULL,
-	"audience" "alkham"."audience" DEFAULT 'unisex' NOT NULL,
+	"audience" "sevshee"."audience" DEFAULT 'unisex' NOT NULL,
 	"short_description" text NOT NULL,
 	"description" text NOT NULL,
 	"material" text NOT NULL,
 	"care" text NOT NULL,
 	"fit" text,
 	"base_price" integer NOT NULL,
-	"status" "alkham"."product_status" DEFAULT 'draft' NOT NULL,
+	"status" "sevshee"."product_status" DEFAULT 'draft' NOT NULL,
 	"is_featured" boolean DEFAULT false NOT NULL,
 	"is_new_arrival" boolean DEFAULT false NOT NULL,
 	"tags" text[] DEFAULT '{}'::text[] NOT NULL,
@@ -287,18 +287,18 @@ CREATE TABLE "alkham"."products" (
 	"created_at" timestamp with time zone DEFAULT now() NOT NULL,
 	"updated_at" timestamp with time zone DEFAULT now() NOT NULL,
 	CONSTRAINT "products_slug_unique" UNIQUE("slug"),
-	CONSTRAINT "products_base_price_positive" CHECK ("alkham"."products"."base_price" > 0)
+	CONSTRAINT "products_base_price_positive" CHECK ("sevshee"."products"."base_price" > 0)
 );
 --> statement-breakpoint
-ALTER TABLE "alkham"."products" ENABLE ROW LEVEL SECURITY;--> statement-breakpoint
-CREATE TABLE "alkham"."rate_limits" (
+ALTER TABLE "sevshee"."products" ENABLE ROW LEVEL SECURITY;--> statement-breakpoint
+CREATE TABLE "sevshee"."rate_limits" (
 	"key" text PRIMARY KEY NOT NULL,
 	"count" integer NOT NULL,
 	"window_started_at" timestamp with time zone NOT NULL
 );
 --> statement-breakpoint
-ALTER TABLE "alkham"."rate_limits" ENABLE ROW LEVEL SECURITY;--> statement-breakpoint
-CREATE TABLE "alkham"."sessions" (
+ALTER TABLE "sevshee"."rate_limits" ENABLE ROW LEVEL SECURITY;--> statement-breakpoint
+CREATE TABLE "sevshee"."sessions" (
 	"id" text PRIMARY KEY NOT NULL,
 	"user_id" uuid NOT NULL,
 	"expires_at" timestamp with time zone NOT NULL,
@@ -307,16 +307,16 @@ CREATE TABLE "alkham"."sessions" (
 	"created_at" timestamp with time zone DEFAULT now() NOT NULL
 );
 --> statement-breakpoint
-ALTER TABLE "alkham"."sessions" ENABLE ROW LEVEL SECURITY;--> statement-breakpoint
-CREATE TABLE "alkham"."settings" (
+ALTER TABLE "sevshee"."sessions" ENABLE ROW LEVEL SECURITY;--> statement-breakpoint
+CREATE TABLE "sevshee"."settings" (
 	"key" text PRIMARY KEY NOT NULL,
 	"value" jsonb NOT NULL,
 	"updated_at" timestamp with time zone DEFAULT now() NOT NULL,
 	"updated_by" uuid
 );
 --> statement-breakpoint
-ALTER TABLE "alkham"."settings" ENABLE ROW LEVEL SECURITY;--> statement-breakpoint
-CREATE TABLE "alkham"."shipping_methods" (
+ALTER TABLE "sevshee"."settings" ENABLE ROW LEVEL SECURITY;--> statement-breakpoint
+CREATE TABLE "sevshee"."shipping_methods" (
 	"id" uuid PRIMARY KEY DEFAULT gen_random_uuid() NOT NULL,
 	"code" text NOT NULL,
 	"name" text NOT NULL,
@@ -330,17 +330,17 @@ CREATE TABLE "alkham"."shipping_methods" (
 	"created_at" timestamp with time zone DEFAULT now() NOT NULL,
 	"updated_at" timestamp with time zone DEFAULT now() NOT NULL,
 	CONSTRAINT "shipping_methods_code_unique" UNIQUE("code"),
-	CONSTRAINT "shipping_methods_fee_non_negative" CHECK ("alkham"."shipping_methods"."fee" >= 0),
-	CONSTRAINT "shipping_methods_region" CHECK ("alkham"."shipping_methods"."region" in ('ub', 'countryside'))
+	CONSTRAINT "shipping_methods_fee_non_negative" CHECK ("sevshee"."shipping_methods"."fee" >= 0),
+	CONSTRAINT "shipping_methods_region" CHECK ("sevshee"."shipping_methods"."region" in ('ub', 'countryside'))
 );
 --> statement-breakpoint
-ALTER TABLE "alkham"."shipping_methods" ENABLE ROW LEVEL SECURITY;--> statement-breakpoint
-CREATE TABLE "alkham"."users" (
+ALTER TABLE "sevshee"."shipping_methods" ENABLE ROW LEVEL SECURITY;--> statement-breakpoint
+CREATE TABLE "sevshee"."users" (
 	"id" uuid PRIMARY KEY DEFAULT gen_random_uuid() NOT NULL,
 	"email" text NOT NULL,
 	"name" text NOT NULL,
 	"password_hash" text,
-	"role" "alkham"."user_role" NOT NULL,
+	"role" "sevshee"."user_role" NOT NULL,
 	"is_active" boolean DEFAULT true NOT NULL,
 	"last_login_at" timestamp with time zone,
 	"created_at" timestamp with time zone DEFAULT now() NOT NULL,
@@ -348,51 +348,51 @@ CREATE TABLE "alkham"."users" (
 	CONSTRAINT "users_email_unique" UNIQUE("email")
 );
 --> statement-breakpoint
-ALTER TABLE "alkham"."users" ENABLE ROW LEVEL SECURITY;--> statement-breakpoint
-ALTER TABLE "alkham"."audit_logs" ADD CONSTRAINT "audit_logs_actor_user_id_users_id_fk" FOREIGN KEY ("actor_user_id") REFERENCES "alkham"."users"("id") ON DELETE set null ON UPDATE no action;--> statement-breakpoint
-ALTER TABLE "alkham"."cart_items" ADD CONSTRAINT "cart_items_cart_id_carts_id_fk" FOREIGN KEY ("cart_id") REFERENCES "alkham"."carts"("id") ON DELETE cascade ON UPDATE no action;--> statement-breakpoint
-ALTER TABLE "alkham"."cart_items" ADD CONSTRAINT "cart_items_variant_id_product_variants_id_fk" FOREIGN KEY ("variant_id") REFERENCES "alkham"."product_variants"("id") ON DELETE cascade ON UPDATE no action;--> statement-breakpoint
-ALTER TABLE "alkham"."inventory_transactions" ADD CONSTRAINT "inventory_transactions_variant_id_product_variants_id_fk" FOREIGN KEY ("variant_id") REFERENCES "alkham"."product_variants"("id") ON DELETE restrict ON UPDATE no action;--> statement-breakpoint
-ALTER TABLE "alkham"."inventory_transactions" ADD CONSTRAINT "inventory_transactions_order_id_orders_id_fk" FOREIGN KEY ("order_id") REFERENCES "alkham"."orders"("id") ON DELETE set null ON UPDATE no action;--> statement-breakpoint
-ALTER TABLE "alkham"."inventory_transactions" ADD CONSTRAINT "inventory_transactions_actor_user_id_users_id_fk" FOREIGN KEY ("actor_user_id") REFERENCES "alkham"."users"("id") ON DELETE set null ON UPDATE no action;--> statement-breakpoint
-ALTER TABLE "alkham"."order_events" ADD CONSTRAINT "order_events_order_id_orders_id_fk" FOREIGN KEY ("order_id") REFERENCES "alkham"."orders"("id") ON DELETE cascade ON UPDATE no action;--> statement-breakpoint
-ALTER TABLE "alkham"."order_events" ADD CONSTRAINT "order_events_actor_user_id_users_id_fk" FOREIGN KEY ("actor_user_id") REFERENCES "alkham"."users"("id") ON DELETE set null ON UPDATE no action;--> statement-breakpoint
-ALTER TABLE "alkham"."order_items" ADD CONSTRAINT "order_items_order_id_orders_id_fk" FOREIGN KEY ("order_id") REFERENCES "alkham"."orders"("id") ON DELETE cascade ON UPDATE no action;--> statement-breakpoint
-ALTER TABLE "alkham"."order_items" ADD CONSTRAINT "order_items_product_id_products_id_fk" FOREIGN KEY ("product_id") REFERENCES "alkham"."products"("id") ON DELETE set null ON UPDATE no action;--> statement-breakpoint
-ALTER TABLE "alkham"."order_items" ADD CONSTRAINT "order_items_variant_id_product_variants_id_fk" FOREIGN KEY ("variant_id") REFERENCES "alkham"."product_variants"("id") ON DELETE set null ON UPDATE no action;--> statement-breakpoint
-ALTER TABLE "alkham"."orders" ADD CONSTRAINT "orders_customer_id_customers_id_fk" FOREIGN KEY ("customer_id") REFERENCES "alkham"."customers"("id") ON DELETE restrict ON UPDATE no action;--> statement-breakpoint
-ALTER TABLE "alkham"."payments" ADD CONSTRAINT "payments_order_id_orders_id_fk" FOREIGN KEY ("order_id") REFERENCES "alkham"."orders"("id") ON DELETE cascade ON UPDATE no action;--> statement-breakpoint
-ALTER TABLE "alkham"."product_collections" ADD CONSTRAINT "product_collections_product_id_products_id_fk" FOREIGN KEY ("product_id") REFERENCES "alkham"."products"("id") ON DELETE cascade ON UPDATE no action;--> statement-breakpoint
-ALTER TABLE "alkham"."product_collections" ADD CONSTRAINT "product_collections_collection_id_collections_id_fk" FOREIGN KEY ("collection_id") REFERENCES "alkham"."collections"("id") ON DELETE cascade ON UPDATE no action;--> statement-breakpoint
-ALTER TABLE "alkham"."product_colors" ADD CONSTRAINT "product_colors_product_id_products_id_fk" FOREIGN KEY ("product_id") REFERENCES "alkham"."products"("id") ON DELETE cascade ON UPDATE no action;--> statement-breakpoint
-ALTER TABLE "alkham"."product_images" ADD CONSTRAINT "product_images_product_id_products_id_fk" FOREIGN KEY ("product_id") REFERENCES "alkham"."products"("id") ON DELETE cascade ON UPDATE no action;--> statement-breakpoint
-ALTER TABLE "alkham"."product_images" ADD CONSTRAINT "product_images_color_id_product_colors_id_fk" FOREIGN KEY ("color_id") REFERENCES "alkham"."product_colors"("id") ON DELETE set null ON UPDATE no action;--> statement-breakpoint
-ALTER TABLE "alkham"."product_variants" ADD CONSTRAINT "product_variants_product_id_products_id_fk" FOREIGN KEY ("product_id") REFERENCES "alkham"."products"("id") ON DELETE cascade ON UPDATE no action;--> statement-breakpoint
-ALTER TABLE "alkham"."product_variants" ADD CONSTRAINT "product_variants_color_id_product_colors_id_fk" FOREIGN KEY ("color_id") REFERENCES "alkham"."product_colors"("id") ON DELETE restrict ON UPDATE no action;--> statement-breakpoint
-ALTER TABLE "alkham"."products" ADD CONSTRAINT "products_category_id_categories_id_fk" FOREIGN KEY ("category_id") REFERENCES "alkham"."categories"("id") ON DELETE restrict ON UPDATE no action;--> statement-breakpoint
-ALTER TABLE "alkham"."sessions" ADD CONSTRAINT "sessions_user_id_users_id_fk" FOREIGN KEY ("user_id") REFERENCES "alkham"."users"("id") ON DELETE cascade ON UPDATE no action;--> statement-breakpoint
-ALTER TABLE "alkham"."settings" ADD CONSTRAINT "settings_updated_by_users_id_fk" FOREIGN KEY ("updated_by") REFERENCES "alkham"."users"("id") ON DELETE set null ON UPDATE no action;--> statement-breakpoint
-CREATE INDEX "ai_usage_created_idx" ON "alkham"."ai_usage" USING btree ("created_at");--> statement-breakpoint
-CREATE INDEX "audit_logs_created_idx" ON "alkham"."audit_logs" USING btree ("created_at");--> statement-breakpoint
-CREATE UNIQUE INDEX "cart_items_cart_variant_uq" ON "alkham"."cart_items" USING btree ("cart_id","variant_id");--> statement-breakpoint
-CREATE INDEX "carts_expires_idx" ON "alkham"."carts" USING btree ("expires_at");--> statement-breakpoint
-CREATE UNIQUE INDEX "customers_phone_visitor_uq" ON "alkham"."customers" USING btree ("phone",coalesce("visitor_id", ''));--> statement-breakpoint
-CREATE INDEX "customers_visitor_idx" ON "alkham"."customers" USING btree ("visitor_id");--> statement-breakpoint
-CREATE INDEX "inventory_tx_variant_idx" ON "alkham"."inventory_transactions" USING btree ("variant_id","created_at");--> statement-breakpoint
-CREATE INDEX "inventory_tx_created_idx" ON "alkham"."inventory_transactions" USING btree ("created_at");--> statement-breakpoint
-CREATE INDEX "order_events_order_idx" ON "alkham"."order_events" USING btree ("order_id","created_at");--> statement-breakpoint
-CREATE INDEX "order_items_order_idx" ON "alkham"."order_items" USING btree ("order_id");--> statement-breakpoint
-CREATE INDEX "order_items_variant_idx" ON "alkham"."order_items" USING btree ("variant_id");--> statement-breakpoint
-CREATE INDEX "orders_status_placed_idx" ON "alkham"."orders" USING btree ("status","placed_at");--> statement-breakpoint
-CREATE INDEX "orders_placed_idx" ON "alkham"."orders" USING btree ("placed_at");--> statement-breakpoint
-CREATE INDEX "orders_visitor_idx" ON "alkham"."orders" USING btree ("visitor_id");--> statement-breakpoint
-CREATE INDEX "orders_customer_idx" ON "alkham"."orders" USING btree ("customer_id");--> statement-breakpoint
-CREATE INDEX "payments_order_idx" ON "alkham"."payments" USING btree ("order_id");--> statement-breakpoint
-CREATE INDEX "product_collections_collection_idx" ON "alkham"."product_collections" USING btree ("collection_id");--> statement-breakpoint
-CREATE UNIQUE INDEX "product_colors_product_code_uq" ON "alkham"."product_colors" USING btree ("product_id","code");--> statement-breakpoint
-CREATE INDEX "product_images_product_idx" ON "alkham"."product_images" USING btree ("product_id","sort_order");--> statement-breakpoint
-CREATE UNIQUE INDEX "product_variants_combo_uq" ON "alkham"."product_variants" USING btree ("product_id","color_id","size");--> statement-breakpoint
-CREATE INDEX "product_variants_product_idx" ON "alkham"."product_variants" USING btree ("product_id");--> statement-breakpoint
-CREATE INDEX "products_status_category_idx" ON "alkham"."products" USING btree ("status","category_id");--> statement-breakpoint
-CREATE INDEX "products_featured_idx" ON "alkham"."products" USING btree ("is_featured");--> statement-breakpoint
-CREATE INDEX "sessions_user_idx" ON "alkham"."sessions" USING btree ("user_id");
+ALTER TABLE "sevshee"."users" ENABLE ROW LEVEL SECURITY;--> statement-breakpoint
+ALTER TABLE "sevshee"."audit_logs" ADD CONSTRAINT "audit_logs_actor_user_id_users_id_fk" FOREIGN KEY ("actor_user_id") REFERENCES "sevshee"."users"("id") ON DELETE set null ON UPDATE no action;--> statement-breakpoint
+ALTER TABLE "sevshee"."cart_items" ADD CONSTRAINT "cart_items_cart_id_carts_id_fk" FOREIGN KEY ("cart_id") REFERENCES "sevshee"."carts"("id") ON DELETE cascade ON UPDATE no action;--> statement-breakpoint
+ALTER TABLE "sevshee"."cart_items" ADD CONSTRAINT "cart_items_variant_id_product_variants_id_fk" FOREIGN KEY ("variant_id") REFERENCES "sevshee"."product_variants"("id") ON DELETE cascade ON UPDATE no action;--> statement-breakpoint
+ALTER TABLE "sevshee"."inventory_transactions" ADD CONSTRAINT "inventory_transactions_variant_id_product_variants_id_fk" FOREIGN KEY ("variant_id") REFERENCES "sevshee"."product_variants"("id") ON DELETE restrict ON UPDATE no action;--> statement-breakpoint
+ALTER TABLE "sevshee"."inventory_transactions" ADD CONSTRAINT "inventory_transactions_order_id_orders_id_fk" FOREIGN KEY ("order_id") REFERENCES "sevshee"."orders"("id") ON DELETE set null ON UPDATE no action;--> statement-breakpoint
+ALTER TABLE "sevshee"."inventory_transactions" ADD CONSTRAINT "inventory_transactions_actor_user_id_users_id_fk" FOREIGN KEY ("actor_user_id") REFERENCES "sevshee"."users"("id") ON DELETE set null ON UPDATE no action;--> statement-breakpoint
+ALTER TABLE "sevshee"."order_events" ADD CONSTRAINT "order_events_order_id_orders_id_fk" FOREIGN KEY ("order_id") REFERENCES "sevshee"."orders"("id") ON DELETE cascade ON UPDATE no action;--> statement-breakpoint
+ALTER TABLE "sevshee"."order_events" ADD CONSTRAINT "order_events_actor_user_id_users_id_fk" FOREIGN KEY ("actor_user_id") REFERENCES "sevshee"."users"("id") ON DELETE set null ON UPDATE no action;--> statement-breakpoint
+ALTER TABLE "sevshee"."order_items" ADD CONSTRAINT "order_items_order_id_orders_id_fk" FOREIGN KEY ("order_id") REFERENCES "sevshee"."orders"("id") ON DELETE cascade ON UPDATE no action;--> statement-breakpoint
+ALTER TABLE "sevshee"."order_items" ADD CONSTRAINT "order_items_product_id_products_id_fk" FOREIGN KEY ("product_id") REFERENCES "sevshee"."products"("id") ON DELETE set null ON UPDATE no action;--> statement-breakpoint
+ALTER TABLE "sevshee"."order_items" ADD CONSTRAINT "order_items_variant_id_product_variants_id_fk" FOREIGN KEY ("variant_id") REFERENCES "sevshee"."product_variants"("id") ON DELETE set null ON UPDATE no action;--> statement-breakpoint
+ALTER TABLE "sevshee"."orders" ADD CONSTRAINT "orders_customer_id_customers_id_fk" FOREIGN KEY ("customer_id") REFERENCES "sevshee"."customers"("id") ON DELETE restrict ON UPDATE no action;--> statement-breakpoint
+ALTER TABLE "sevshee"."payments" ADD CONSTRAINT "payments_order_id_orders_id_fk" FOREIGN KEY ("order_id") REFERENCES "sevshee"."orders"("id") ON DELETE cascade ON UPDATE no action;--> statement-breakpoint
+ALTER TABLE "sevshee"."product_collections" ADD CONSTRAINT "product_collections_product_id_products_id_fk" FOREIGN KEY ("product_id") REFERENCES "sevshee"."products"("id") ON DELETE cascade ON UPDATE no action;--> statement-breakpoint
+ALTER TABLE "sevshee"."product_collections" ADD CONSTRAINT "product_collections_collection_id_collections_id_fk" FOREIGN KEY ("collection_id") REFERENCES "sevshee"."collections"("id") ON DELETE cascade ON UPDATE no action;--> statement-breakpoint
+ALTER TABLE "sevshee"."product_colors" ADD CONSTRAINT "product_colors_product_id_products_id_fk" FOREIGN KEY ("product_id") REFERENCES "sevshee"."products"("id") ON DELETE cascade ON UPDATE no action;--> statement-breakpoint
+ALTER TABLE "sevshee"."product_images" ADD CONSTRAINT "product_images_product_id_products_id_fk" FOREIGN KEY ("product_id") REFERENCES "sevshee"."products"("id") ON DELETE cascade ON UPDATE no action;--> statement-breakpoint
+ALTER TABLE "sevshee"."product_images" ADD CONSTRAINT "product_images_color_id_product_colors_id_fk" FOREIGN KEY ("color_id") REFERENCES "sevshee"."product_colors"("id") ON DELETE set null ON UPDATE no action;--> statement-breakpoint
+ALTER TABLE "sevshee"."product_variants" ADD CONSTRAINT "product_variants_product_id_products_id_fk" FOREIGN KEY ("product_id") REFERENCES "sevshee"."products"("id") ON DELETE cascade ON UPDATE no action;--> statement-breakpoint
+ALTER TABLE "sevshee"."product_variants" ADD CONSTRAINT "product_variants_color_id_product_colors_id_fk" FOREIGN KEY ("color_id") REFERENCES "sevshee"."product_colors"("id") ON DELETE restrict ON UPDATE no action;--> statement-breakpoint
+ALTER TABLE "sevshee"."products" ADD CONSTRAINT "products_category_id_categories_id_fk" FOREIGN KEY ("category_id") REFERENCES "sevshee"."categories"("id") ON DELETE restrict ON UPDATE no action;--> statement-breakpoint
+ALTER TABLE "sevshee"."sessions" ADD CONSTRAINT "sessions_user_id_users_id_fk" FOREIGN KEY ("user_id") REFERENCES "sevshee"."users"("id") ON DELETE cascade ON UPDATE no action;--> statement-breakpoint
+ALTER TABLE "sevshee"."settings" ADD CONSTRAINT "settings_updated_by_users_id_fk" FOREIGN KEY ("updated_by") REFERENCES "sevshee"."users"("id") ON DELETE set null ON UPDATE no action;--> statement-breakpoint
+CREATE INDEX "ai_usage_created_idx" ON "sevshee"."ai_usage" USING btree ("created_at");--> statement-breakpoint
+CREATE INDEX "audit_logs_created_idx" ON "sevshee"."audit_logs" USING btree ("created_at");--> statement-breakpoint
+CREATE UNIQUE INDEX "cart_items_cart_variant_uq" ON "sevshee"."cart_items" USING btree ("cart_id","variant_id");--> statement-breakpoint
+CREATE INDEX "carts_expires_idx" ON "sevshee"."carts" USING btree ("expires_at");--> statement-breakpoint
+CREATE UNIQUE INDEX "customers_phone_visitor_uq" ON "sevshee"."customers" USING btree ("phone",coalesce("visitor_id", ''));--> statement-breakpoint
+CREATE INDEX "customers_visitor_idx" ON "sevshee"."customers" USING btree ("visitor_id");--> statement-breakpoint
+CREATE INDEX "inventory_tx_variant_idx" ON "sevshee"."inventory_transactions" USING btree ("variant_id","created_at");--> statement-breakpoint
+CREATE INDEX "inventory_tx_created_idx" ON "sevshee"."inventory_transactions" USING btree ("created_at");--> statement-breakpoint
+CREATE INDEX "order_events_order_idx" ON "sevshee"."order_events" USING btree ("order_id","created_at");--> statement-breakpoint
+CREATE INDEX "order_items_order_idx" ON "sevshee"."order_items" USING btree ("order_id");--> statement-breakpoint
+CREATE INDEX "order_items_variant_idx" ON "sevshee"."order_items" USING btree ("variant_id");--> statement-breakpoint
+CREATE INDEX "orders_status_placed_idx" ON "sevshee"."orders" USING btree ("status","placed_at");--> statement-breakpoint
+CREATE INDEX "orders_placed_idx" ON "sevshee"."orders" USING btree ("placed_at");--> statement-breakpoint
+CREATE INDEX "orders_visitor_idx" ON "sevshee"."orders" USING btree ("visitor_id");--> statement-breakpoint
+CREATE INDEX "orders_customer_idx" ON "sevshee"."orders" USING btree ("customer_id");--> statement-breakpoint
+CREATE INDEX "payments_order_idx" ON "sevshee"."payments" USING btree ("order_id");--> statement-breakpoint
+CREATE INDEX "product_collections_collection_idx" ON "sevshee"."product_collections" USING btree ("collection_id");--> statement-breakpoint
+CREATE UNIQUE INDEX "product_colors_product_code_uq" ON "sevshee"."product_colors" USING btree ("product_id","code");--> statement-breakpoint
+CREATE INDEX "product_images_product_idx" ON "sevshee"."product_images" USING btree ("product_id","sort_order");--> statement-breakpoint
+CREATE UNIQUE INDEX "product_variants_combo_uq" ON "sevshee"."product_variants" USING btree ("product_id","color_id","size");--> statement-breakpoint
+CREATE INDEX "product_variants_product_idx" ON "sevshee"."product_variants" USING btree ("product_id");--> statement-breakpoint
+CREATE INDEX "products_status_category_idx" ON "sevshee"."products" USING btree ("status","category_id");--> statement-breakpoint
+CREATE INDEX "products_featured_idx" ON "sevshee"."products" USING btree ("is_featured");--> statement-breakpoint
+CREATE INDEX "sessions_user_idx" ON "sevshee"."sessions" USING btree ("user_id");

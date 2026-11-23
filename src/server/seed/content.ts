@@ -1,11 +1,11 @@
 // Default store content written once by the seed (then owned by the database and
-// edited from /admin/settings): ALKHAM's, or the MANAN reference for the engine's
+// edited from /admin/settings): SEVSHEE's, or the MANAN reference for the engine's
 // tests (STORE_CATALOG=reference, see ./catalog-data.ts).
 import type { SizeGuide } from '@/lib/settings'
-import * as alkham from './alkham/content'
+import * as sevshee from './sevshee/content'
 import * as reference from './reference/content'
 
-const data = process.env.STORE_CATALOG === 'reference' ? reference : alkham
+const data = process.env.STORE_CATALOG === 'reference' ? reference : sevshee
 
 export const DEFAULT_STORE_INFO = data.DEFAULT_STORE_INFO
 export const DEFAULT_POLICIES = data.DEFAULT_POLICIES

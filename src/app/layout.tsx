@@ -1,19 +1,19 @@
 import type { Metadata, Viewport } from 'next'
-import { Golos_Text, Unbounded } from 'next/font/google'
+import { Manrope, Tenor_Sans } from 'next/font/google'
 import { BRAND } from '@/lib/brand'
 import { appUrl, indexingAllowed } from '@/server/app-url'
 import './globals.css'
 
-const golos = Golos_Text({
+const manrope = Manrope({
   subsets: ['latin', 'cyrillic'],
-  variable: '--font-golos',
+  variable: '--font-manrope',
   display: 'swap',
 })
 
-const unbounded = Unbounded({
+const tenor = Tenor_Sans({
   subsets: ['latin', 'cyrillic'],
-  variable: '--font-unbounded',
-  weight: ['500', '600', '700', '800'],
+  variable: '--font-tenor',
+  weight: '400',
   display: 'swap',
 })
 
@@ -29,14 +29,14 @@ export const metadata: Metadata = {
 }
 
 export const viewport: Viewport = {
-  themeColor: '#eceef0',
+  themeColor: '#f1f2ed',
   width: 'device-width',
   initialScale: 1,
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="mn" className={`${golos.variable} ${unbounded.variable}`}>
+    <html lang="mn" className={`${manrope.variable} ${tenor.variable}`}>
       <body className="min-h-dvh">{children}</body>
     </html>
   )

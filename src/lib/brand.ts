@@ -5,20 +5,20 @@
 
 export const BRAND = {
   /** Wordmark. Latin so it works as a domain and social handle. */
-  name: 'ALKHAM',
-  /** How the name is written in Mongolian Cyrillic (алхам — "a step"). */
-  nameMn: 'Алхам',
-  tagline: 'Алхам бүрт тохирно.',
+  name: 'SEVSHEE',
+  /** How the name is written in Mongolian Cyrillic (сэвшээ — "a light breeze"). */
+  nameMn: 'Сэвшээ',
+  tagline: 'Сэвшээ салхи шиг хөнгөн.',
   /** One-line positioning used in metadata. */
   description:
-    'ALKHAM — Улаанбаатарын гудамж, өвөлд зориулсан пүүз, ботинк, туфлийн зохиомол гутлын дэлгүүр. Ursgal Digital-ын портфолио демо.',
+    'SEVSHEE — Улаанбаатарын эмэгтэйчүүдэд зориулсан даашинз, сүлжмэл, гадуур хувцас, цүнхний зохиомол бутик. Ursgal Digital-ын портфолио демо.',
   /** `.example` is a reserved domain (RFC 2606), so this can never reach a real inbox. */
-  email: 'hello@alkham.example',
+  email: 'hello@sevshee.example',
   /** The demo brand has no social Pages of its own. */
   facebook: null as string | null,
   instagram: null as string | null,
   /** Where the "back to portfolio" link points. */
-  portfolioUrl: process.env.NEXT_PUBLIC_PORTFOLIO_URL ?? 'https://www.ursgaldigital.com/portfolio/shoes',
+  portfolioUrl: process.env.NEXT_PUBLIC_PORTFOLIO_URL ?? 'https://www.ursgaldigital.com/portfolio/boutique',
   agencyName: 'Ursgal Digital',
 } as const
 

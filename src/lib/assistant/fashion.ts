@@ -10,6 +10,12 @@ import { colorFamily, normalizeText } from '@/lib/catalog-filter'
 export const FASHION_ALIASES: Alias[] = [
   // garments
   [/\b(?:tsamts|tsamtsnii|tsamtsaa|tsamtsiig|camc|tsamc|shirt|shirts)\b/gi, 'цамц'],
+  [/\b(?:daashinz|dashinz|daashins|dashins|daashinzny|dress|dresses)\b/gi, 'даашинз'],
+  [/\b(?:banzal|banzlaa|banzalnii|skirt|skirts)\b/gi, 'банзал'],
+  [/\b(?:bluz|blouse|blouses)\b/gi, 'блуз'],
+  [/\b(?:maik|maika|mayk|tank|cami)\b/gi, 'майк'],
+  [/\b(?:pidjak|pijak|pidjek|blazer)\b/gi, 'пиджак'],
+  [/\b(?:klatch|klach|clutch)\b/gi, 'клатч'],
   [/\b(?:umd|umdnii|umdni|umdiig|umdee|pants|trousers)\b/gi, 'өмд'],
   [/\b(?:hurem|huremnii|huremee|jacket)\b/gi, 'хүрэм'],
   [/\b(?:palito|palto|paltoo|paliti|coat)\b/gi, 'пальто'],
@@ -228,14 +234,23 @@ export function bareNumbers(normalized: string): string[] {
  * and knitted tops, "өмд" covers jeans too ("жинсэн өмд").
  */
 export const GARMENT_GROUPS: { words: string[]; categories: string[] }[] = [
-  { words: ['цамц', 'цамцны', 'цамцаа', 'цамцыг'], categories: ['shirts', 'knitwear', 't-shirts'] },
+  { words: ['цамц', 'цамцны', 'цамцаа', 'цамцыг'], categories: ['shirts', 'knitwear', 't-shirts', 'tops'] },
+  { words: ['даашинз', 'даашинзны', 'даашинзаа', 'даашинзыг'], categories: ['dresses'] },
+  { words: ['банзал', 'банзалны', 'банзлаа', 'банзлыг', 'юбка'], categories: ['skirts'] },
+  { words: ['блуз', 'блузыг', 'блузны'], categories: ['tops'] },
+  { words: ['майк', 'майкны', 'майкаа'], categories: ['tops'] },
+  { words: ['пиджак', 'пиджакны', 'жакет'], categories: ['outerwear'] },
+  { words: ['клатч', 'клатчны'], categories: ['bags'] },
   { words: ['өмд', 'өмдний', 'өмдөө', 'өмдийг'], categories: ['trousers', 'jeans'] },
   { words: ['жинс', 'жинсний', 'жинсэн'], categories: ['jeans'] },
   { words: ['футболк', 'футболка', 'подволк'], categories: ['t-shirts'] },
   { words: ['hoodie', 'худи', 'свитшот'], categories: ['hoodies'] },
   { words: ['свитер', 'кардиган', 'сүлжмэл'], categories: ['knitwear'] },
   { words: ['хүрэм', 'хүрмийг', 'пальто', 'пуховик', 'хантааз', 'куртка'], categories: ['outerwear'] },
-  { words: ['малгай', 'кепи', 'бейсболк', 'ороолт', 'цүнх', 'бүс'], categories: ['accessories'] },
+  { words: ['малгай', 'кепи', 'бейсболк'], categories: ['accessories'] },
+  { words: ['цүнх', 'цүнхний', 'цүнхээ', 'цүнхийг'], categories: ['accessories', 'bags'] },
+  { words: ['ороолт', 'ороолтоо', 'ороолтыг'], categories: ['accessories', 'bags'] },
+  { words: ['бүс', 'бүсээ'], categories: ['accessories'] },
   { words: ['гутал', 'гутлын', 'гутлаа', 'гутлыг'], categories: ['shoes', 'sneakers', 'boots', 'heels', 'formal', 'flats'] },
   // A kind of shoe: its own category where a shop has one, otherwise the product name,
   // so «пүүз» does not list the boots.

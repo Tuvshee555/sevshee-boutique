@@ -17,7 +17,7 @@ function secret(): string {
   // Without its own SESSION_SECRET a deployment derives one from DATABASE_URL: server-only,
   // secret (it holds the database password) and stable across deploys.
   const databaseUrl = process.env.DATABASE_URL
-  if (databaseUrl) return (derived ??= createHash('sha256').update(`alkham:session-secret:${databaseUrl}`).digest('base64url'))
+  if (databaseUrl) return (derived ??= createHash('sha256').update(`sevshee:session-secret:${databaseUrl}`).digest('base64url'))
   if (process.env.NODE_ENV === 'production') throw new Error('SESSION_SECRET (or DATABASE_URL) must be set')
   return 'development-only-secret-do-not-use-in-production'
 }

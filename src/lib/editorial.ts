@@ -2,9 +2,8 @@
 // Paths are logical: the image loader serves the right width of each file
 // built by scripts/images/build.ts (keys in scripts/images/manifest.json).
 export const EDITORIAL = {
-  hero: { src: '/images/editorial/hero.webp', alt: 'Шар дэвсгэр дээр цагаан пүүзтэй зогсож буй хүн' },
-  winter: { src: '/images/editorial/winter-wide.webp', alt: 'Эгнүүлэн тавьсан өвлийн резин гутал' },
-  story: { src: '/images/editorial/story.webp', alt: 'Шинэ гутлаа өмсөж үзэж буй хүн' },
-  leaves: { src: '/images/editorial/leaves.webp', alt: 'Намрын хуурай навчин дээр ботинктой зогсож буй хүн' },
-  kids: { src: '/images/editorial/tile-kids.webp', alt: 'Хүүхдийн жижигхэн гутал, оймс' },
+  hero: { src: '/images/editorial/hero.webp', alt: 'Даашинз, ноосон пальтотой хоёр эмэгтэй ногоон талбайгаар гар хөтлөлцөн алхаж буй нь' },
+  evening: { src: '/images/editorial/evening.webp', alt: 'Хар даашинз, цөцгий пальтотой хоёр эмэгтэй үдэшлэг дээр ярилцаж буй нь' },
+  story: { src: '/images/editorial/story.webp', alt: 'Хувцасны дэлгүүрт өлгүүрээс цамц сонгож буй эмэгтэй' },
+  about: { src: '/images/editorial/about.webp', alt: 'Цагаан цамц, жинстэй эмэгтэй хотын гудамжаар алхаж буй нь' },
 } as const

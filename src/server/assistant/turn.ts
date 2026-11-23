@@ -292,7 +292,7 @@ export async function runTurn(input: TurnInput): Promise<TurnOutput> {
     const first = !input.history.some((m) => m.role === 'user')
     return done({
       ...empty,
-      text: first ? `${tc.settings.greeting}${focusProduct ? `\nТа одоо ${link(focusProduct)}-г үзэж байна — өнгө, размер, үлдэгдлийг нь асууж болно.` : ''}` : 'Сайн байна уу! Юугаар туслах вэ?',
+      text: first ? `${tc.settings.greeting}${focusProduct ? `\nТа одоо ${link(focusProduct)}-г үзэж байна — өнгө, хэмжээ, үлдэгдлийг нь асууж болно.` : ''}` : 'Сайн байна уу! Юугаар туслах вэ?',
       intent: 'greeting',
       suggestions: STORE_VOICE.starters.slice(0, 4),
     })
@@ -433,6 +433,9 @@ async function aiAnswer(input: TurnInput, focus: Focus | null): Promise<{ answer
 
 /** Products matching type, price, colour/size (same in-stock variant), season and audience. */
 function search(tc: ToolContext, u: Understood, typed: CatalogProduct[], named: CatalogProduct[]): Answer | null {
+  // A kind of garment the shop does not carry ("даашинз" where no dresses are sold): never list
+  // everything under that name — the not-in-catalogue answer says so instead.
+  if (u.garments.length > 0 && typed.length === 0 && named.length <= 1) return null
   let pool = typed.length ? typed : named.length > 1 ? named : tc.catalog
   const notes: string[] = []
   if (u.maxPrice !== null) pool = pool.filter((p) => p.minPrice <= u.maxPrice!)

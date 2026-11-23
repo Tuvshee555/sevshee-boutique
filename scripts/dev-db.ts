@@ -6,14 +6,14 @@
 //
 // The first run creates the database in .dev-db/ (git-ignored), applies the
 // migrations and seeds the catalogue. Point .env.local at it:
-//   DATABASE_URL=postgres://postgres:postgres@127.0.0.1:54328/alkham_dev
+//   DATABASE_URL=postgres://postgres:postgres@127.0.0.1:54328/sevshee_dev
 import EmbeddedPostgres from 'embedded-postgres'
 import { spawnSync } from 'node:child_process'
 import { chmodSync, existsSync, mkdirSync, writeFileSync } from 'node:fs'
 import path from 'node:path'
 
 const PORT = Number(process.env.DEV_DB_PORT || 54328)
-const NAME = 'alkham_dev'
+const NAME = 'sevshee_dev'
 const DIR = path.join(process.cwd(), '.dev-db')
 const DATA = path.join(DIR, 'pgdata')
 const READY = path.join(DIR, 'SETUP_DONE')
