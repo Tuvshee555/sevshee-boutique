@@ -214,9 +214,9 @@ export function ProductView({
                   aria-label={`${c.name}${anyStock ? '' : ' — дууссан'}`}
                   title={c.name}
                   onClick={() => chooseColor(c.id)}
-                  className={cn('relative h-9 w-9 p-[3px] transition', c.id === colorId ? 'ring-1 ring-ink' : 'ring-1 ring-stone-300 hover:ring-stone-500')}
+                  className={cn('relative h-9 w-9 rounded-full p-[3px] transition', c.id === colorId ? 'ring-1 ring-ink' : 'ring-1 ring-stone-300 hover:ring-stone-500')}
                 >
-                  <span className="block h-full w-full border border-black/10" style={{ backgroundColor: c.hex }} />
+                  <span className="block h-full w-full rounded-full border border-black/10" style={{ backgroundColor: c.hex }} />
                   {!anyStock && <span className="absolute inset-0 m-auto h-px w-[130%] -translate-x-[12%] rotate-45 bg-stone-500" aria-hidden />}
                 </button>
               )
@@ -252,13 +252,13 @@ export function ProductView({
                     setError(null)
                   }}
                   className={cn(
-                    'relative h-11 border text-[13px] transition',
+                    'relative h-11 rounded-full border text-[13px] transition',
                     size === s ? 'border-ink bg-ink text-white' : 'border-stone-300 hover:border-ink',
                     out && size !== s && 'text-stone-400 line-through decoration-stone-400',
                   )}
                 >
                   {sizeLabel(s)}
-                  {state === 'low_stock' && size !== s && <span className="absolute right-1 top-1 h-1.5 w-1.5 bg-accent" aria-hidden />}
+                  {state === 'low_stock' && size !== s && <span className="absolute right-2 top-1.5 h-1.5 w-1.5 rounded-full bg-accent" aria-hidden />}
                 </button>
               )
             })}

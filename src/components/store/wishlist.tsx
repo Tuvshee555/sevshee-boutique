@@ -64,7 +64,7 @@ export function WishlistButton({ slug, name, className }: { slug: string; name: 
       }}
       aria-pressed={saved}
       aria-label={saved ? `${name} — хадгалснаас хасах` : `${name} — хадгалах`}
-      className={cn('grid h-9 w-9 place-items-center bg-paper/85 text-ink backdrop-blur-sm transition hover:bg-white', className)}
+      className={cn('grid h-9 w-9 place-items-center rounded-full bg-paper/85 text-ink backdrop-blur-sm transition hover:bg-white', className)}
     >
       <Heart className={cn('h-[17px] w-[17px]', saved && 'fill-ink')} strokeWidth={1.5} />
     </button>
