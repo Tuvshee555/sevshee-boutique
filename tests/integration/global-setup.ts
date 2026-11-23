@@ -1,0 +1,65 @@
+// Starts a throwaway PostgreSQL for the integration suite, builds a template
+// database (migrations + full seed) and hands its URL to the tests. Each test
+// file clones the template, so tests never share state — and never touch the
+// real (Neon) database.
+import EmbeddedPostgres from 'embedded-postgres'
+import fs from 'node:fs'
+import os from 'node:os'
+import path from 'node:path'
+import pg from 'pg'
+import type { TestProject } from 'vitest/node'
+import { runMigrations, withDb } from '../../scripts/lib/tasks'
+
+declare module 'vitest' {
+  export interface ProvidedContext {
+    pgAdminUrl: string
+    pgTemplate: string
+  }
+}
+
+const PORT = 54_400 + (process.pid % 300)
+const TEMPLATE = 'it_template'
+
+export default async function setup(project: TestProject) {
+  const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'manan-it-'))
+  // Run as root (a container), Postgres starts as a `postgres` user: it must reach this folder
+  // and own the data folder inside it.
+  const asRoot = process.getuid?.() === 0
+  if (asRoot) fs.chmodSync(dir, 0o755)
+  const server = new EmbeddedPostgres({
+    databaseDir: path.join(dir, 'data'),
+    port: PORT,
+    user: 'postgres',
+    password: 'postgres',
+    persistent: false,
+    createPostgresUser: asRoot,
+    initdbFlags: ['--encoding=UTF8', '--locale=C'],
+    postgresFlags: ['-c', 'timezone=UTC', '-c', 'fsync=off', '-c', 'log_min_messages=warning'],
+    onLog: () => {},
+    onError: () => {},
+  })
+  await server.initialise()
+  await server.start()
+
+  const adminUrl = `postgres://postgres:postgres@127.0.0.1:${PORT}/postgres`
+  const admin = new pg.Client({ connectionString: adminUrl })
+  await admin.connect()
+  await admin.query(`create database ${TEMPLATE}`)
+  await admin.end()
+
+  const templateUrl = `postgres://postgres:postgres@127.0.0.1:${PORT}/${TEMPLATE}`
+  await runMigrations(templateUrl)
+  // The template holds the MANAN reference catalogue (see src/server/seed/catalog-data.ts).
+  // This process is not a test worker, so it sets the switch itself before loading the seed.
+  process.env.STORE_CATALOG = 'reference'
+  const { seed } = await import('../../src/server/seed')
+  await withDb(templateUrl, (db) => seed(db, { owner: { email: 'owner@test.example', password: 'Test-Owner-Password-1', name: 'Тест эзэмшигч' } }))
+
+  project.provide('pgAdminUrl', adminUrl)
+  project.provide('pgTemplate', TEMPLATE)
+
+  return async () => {
+    await server.stop().catch(() => {})
+    fs.rmSync(dir, { recursive: true, force: true })
+  }
+}

@@ -1,0 +1,356 @@
+[
+ {
+  "key": "snk-bw-purple",
+  "slug": "black-and-white-sneakers-against-purple-and-white",
+  "kind": "catalog",
+  "title": "Black And White Sneakers Against Purple And White",
+  "author": "Sarah Pflug",
+  "license": "burst"
+ },
+ {
+  "key": "snk-bw-white",
+  "slug": "fashionable-black-and-white-sneakers",
+  "kind": "catalog",
+  "title": "Fashionable Black And White Sneakers",
+  "author": "Sarah Pflug",
+  "license": "burst"
+ },
+ {
+  "key": "snk-retro",
+  "slug": "new-shoes",
+  "kind": "catalog",
+  "title": "New Shoes?",
+  "author": "Matthew Henry",
+  "license": "burst"
+ },
+ {
+  "key": "snk-runner",
+  "slug": "black-sneakers-with-shite-sole",
+  "file": "black-sneakers-with-white-sole",
+  "kind": "catalog",
+  "title": "Black Sneakers With White Sole",
+  "author": "Shopify Partners",
+  "license": "burst"
+ },
+ {
+  "key": "snk-allblack",
+  "slug": "pair-of-all-black-sneakers",
+  "kind": "catalog",
+  "title": "Pair Of All Black Sneakers",
+  "author": "Shopify Partners",
+  "license": "burst"
+ },
+ {
+  "key": "snk-navy",
+  "slug": "pair-of-navy-blue-skate-shoes",
+  "kind": "catalog",
+  "title": "Pair Of Navy Blue Skate Shoes",
+  "author": "Shopify Partners",
+  "license": "burst"
+ },
+ {
+  "key": "snk-navy-2",
+  "slug": "navy-blue-skate-shoe-left",
+  "kind": "catalog",
+  "title": "Navy Blue Skate Shoe Left",
+  "author": "Shopify Partners",
+  "license": "burst"
+ },
+ {
+  "key": "snk-slipon",
+  "slug": "summer-gingham-fashion-flatlay",
+  "kind": "catalog",
+  "title": "Summer Gingham Fashion Flatlay",
+  "author": "Henry Geddes",
+  "license": "burst"
+ },
+ {
+  "key": "snk-beige",
+  "slug": "beige-trainers-in-front-of-yellow-beam",
+  "kind": "catalog",
+  "title": "Beige Trainers In Front Of Yellow Beam",
+  "author": "Matthew Henry",
+  "license": "burst"
+ },
+ {
+  "key": "bt-chelsea",
+  "slug": "black-and-nude-boots-on-red",
+  "kind": "catalog",
+  "title": "Black And Nude Boots On Red",
+  "author": "Sarah Pflug",
+  "license": "burst"
+ },
+ {
+  "key": "bt-brown-curb",
+  "slug": "brown-boots-on-the-curb",
+  "kind": "catalog",
+  "title": "Brown Boots On The Curb",
+  "author": "Sarah Pflug",
+  "license": "burst"
+ },
+ {
+  "key": "bt-tan-work",
+  "slug": "stylish-hiking-boots",
+  "kind": "catalog",
+  "title": "Stylish Hiking Boots",
+  "author": "Samuel Young Lee",
+  "license": "burst"
+ },
+ {
+  "key": "bt-hiking",
+  "slug": "rugged-hiking-boots-stood-on-rocks",
+  "kind": "catalog",
+  "title": "Rugged Hiking Boots Stood On Rocks",
+  "author": "Matthew Henry",
+  "license": "burst"
+ },
+ {
+  "key": "bt-lace-women",
+  "slug": "boots-against-the-wall",
+  "kind": "catalog",
+  "title": "Boots Against The Wall",
+  "author": "Matthew Henry",
+  "license": "burst"
+ },
+ {
+  "key": "bt-black-heel",
+  "slug": "low-shot-of-women-sitting-on-velvet-couch",
+  "kind": "catalog",
+  "title": "Low Shot Of Women Sitting On Velvet Couch",
+  "author": "Samantha Hurley",
+  "license": "burst"
+ },
+ {
+  "key": "hl-black",
+  "slug": "tattoo-high-heels",
+  "kind": "catalog",
+  "title": "Tattoo High Heels",
+  "author": "Sarah Pflug",
+  "license": "burst"
+ },
+ {
+  "key": "hl-yellow",
+  "slug": "woman-perches-atop-a-giant-shoe-facing-the-ceiling",
+  "kind": "catalog",
+  "title": "Woman Perches Atop A Giant Shoe Facing The Ceiling",
+  "author": "Samantha Hurley",
+  "license": "burst"
+ },
+ {
+  "key": "hl-red",
+  "slug": "high-heels-on-steps",
+  "kind": "catalog",
+  "title": "High Heels On Steps",
+  "author": "Matthew Henry",
+  "license": "burst"
+ },
+ {
+  "key": "hl-mules",
+  "slug": "accessories-flatlay",
+  "kind": "catalog",
+  "title": "Accessories Flatlay",
+  "author": "Sarah Pflug",
+  "license": "burst"
+ },
+ {
+  "key": "hl-mules-2",
+  "slug": "heels-and-flowers",
+  "kind": "catalog",
+  "title": "Heels And Flowers",
+  "author": "Sarah Pflug",
+  "license": "burst"
+ },
+ {
+  "key": "hl-bridal",
+  "slug": "clear-bridal-shoes-with-crystal-decoration",
+  "kind": "catalog",
+  "title": "Clear Bridal Shoes With Crystal Decoration",
+  "author": "Farah",
+  "license": "burst"
+ },
+ {
+  "key": "fm-loafer",
+  "slug": "loafers-leaning-along-white-wall",
+  "kind": "catalog",
+  "title": "Loafers Leaning Along White Wall",
+  "author": "Henry Geddes",
+  "license": "burst"
+ },
+ {
+  "key": "fm-oxford",
+  "slug": "mens-leather-dress-shoes",
+  "kind": "catalog",
+  "focus": "south",
+  "title": "Mens Leather Dress Shoes",
+  "author": "Shopify Photos",
+  "license": "burst"
+ },
+ {
+  "key": "fm-brogue",
+  "slug": "gentlemans-fashion-flatlay",
+  "kind": "catalog",
+  "title": "Gentlemans Fashion Flatlay",
+  "author": "Sarah Pflug",
+  "license": "burst"
+ },
+ {
+  "key": "sl-studded",
+  "slug": "studded-flats",
+  "kind": "catalog",
+  "title": "Studded Flats",
+  "author": "Shopify Photos",
+  "license": "burst"
+ },
+ {
+  "key": "sl-felt",
+  "slug": "grey-slippers-on-carpet",
+  "kind": "catalog",
+  "title": "Grey Slippers On Carpet",
+  "author": "Shopify Partners",
+  "license": "burst"
+ },
+ {
+  "key": "kd-led",
+  "slug": "hightop-lighted-sneakers",
+  "kind": "catalog",
+  "title": "Hightop Lighted Sneakers",
+  "author": "Matthew Henry",
+  "license": "burst"
+ },
+ {
+  "key": "kd-led-2",
+  "slug": "red-led-shoes",
+  "file": "red-LED-shoes",
+  "kind": "catalog",
+  "title": "Red LED Shoes",
+  "author": "Matthew Henry",
+  "license": "burst"
+ },
+ {
+  "key": "kd-boots",
+  "slug": "childs-shoes-and-socks",
+  "kind": "catalog",
+  "title": "Childs Shoes And Socks",
+  "author": "Margarita Svintsitsky",
+  "license": "burst"
+ },
+ {
+  "key": "kd-baby-white",
+  "slug": "tiny-white-baby-shoes-on-white-sheet",
+  "kind": "catalog",
+  "title": "Tiny White Baby Shoes On White Sheet",
+  "author": "Farah",
+  "license": "burst"
+ },
+ {
+  "key": "kd-baby",
+  "slug": "baby-shoes",
+  "kind": "catalog",
+  "title": "Baby Shoes",
+  "author": "Lisa Johnson",
+  "license": "burst"
+ },
+ {
+  "key": "hero",
+  "slug": "person-in-white-stands-on-a-yellow-surface",
+  "kind": "editorial",
+  "aspect": 0.8,
+  "title": "Person In White Stands On A Yellow Surface",
+  "author": "Vi Tran Thi Mong",
+  "license": "burst"
+ },
+ {
+  "key": "winter-wide",
+  "slug": "row-of-rubber-boots",
+  "kind": "editorial",
+  "aspect": 1.5,
+  "title": "Row Of Rubber Boots",
+  "author": "Scott Murdoch",
+  "license": "burst"
+ },
+ {
+  "key": "story",
+  "slug": "trying-on-shoes",
+  "kind": "editorial",
+  "aspect": 0.8333,
+  "title": "Trying On Shoes",
+  "author": "Shopify Partners",
+  "license": "burst",
+  "focus": {
+   "x": 0.56,
+   "y": 0.45
+  }
+ },
+ {
+  "key": "leaves",
+  "slug": "person-in-boots-stand-on-crunchy-fall-leaves",
+  "kind": "editorial",
+  "aspect": 0.8333,
+  "title": "Person In Boots Stand On Crunchy Fall Leaves",
+  "author": "Christina Lee Adam",
+  "license": "burst"
+ },
+ {
+  "key": "col-new",
+  "slug": "person-in-white-stands-on-a-yellow-surface",
+  "kind": "editorial",
+  "aspect": 0.8,
+  "title": "Person In White Stands On A Yellow Surface",
+  "author": "Vi Tran Thi Mong",
+  "license": "burst"
+ },
+ {
+  "key": "col-winter",
+  "slug": "stylish-hiking-boots",
+  "kind": "editorial",
+  "aspect": 0.8,
+  "title": "Stylish Hiking Boots",
+  "author": "Samuel Young Lee",
+  "license": "burst"
+ },
+ {
+  "key": "col-street",
+  "slug": "new-shoes",
+  "kind": "editorial",
+  "aspect": 0.8,
+  "title": "New Shoes?",
+  "author": "Matthew Henry",
+  "license": "burst"
+ },
+ {
+  "key": "col-office",
+  "slug": "loafers-leaning-along-white-wall",
+  "kind": "editorial",
+  "aspect": 0.8,
+  "title": "Loafers Leaning Along White Wall",
+  "author": "Henry Geddes",
+  "license": "burst"
+ },
+ {
+  "key": "col-women",
+  "slug": "black-and-nude-boots-on-red",
+  "kind": "editorial",
+  "aspect": 0.8,
+  "title": "Black And Nude Boots On Red",
+  "author": "Sarah Pflug",
+  "license": "burst"
+ },
+ {
+  "key": "col-men",
+  "slug": "brown-boots-on-the-curb",
+  "kind": "editorial",
+  "aspect": 0.8,
+  "title": "Brown Boots On The Curb",
+  "author": "Sarah Pflug",
+  "license": "burst"
+ },
+ {
+  "key": "tile-kids",
+  "slug": "childs-shoes-and-socks",
+  "kind": "editorial",
+  "aspect": 0.8333,
+  "title": "Childs Shoes And Socks",
+  "author": "Margarita Svintsitsky",
+  "license": "burst"
+ }
+]

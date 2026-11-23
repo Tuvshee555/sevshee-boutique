@@ -1,0 +1,202 @@
+@import 'tailwindcss';
+
+/*
+ * ALKHAM design tokens — cool sidewalk greys, near-black ink, one cobalt accent
+ * and a shoebox-label yellow used only on sizes. Unbounded for display, Golos
+ * Text for everything else. Contrast: ink on paper ≈ 17:1, stone-600 on paper
+ * ≈ 5.6:1, white on accent ≈ 7.4:1.
+ */
+@theme {
+  --font-sans: var(--font-golos), ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-display: var(--font-unbounded), ui-sans-serif, system-ui, sans-serif;
+
+  --color-paper: #eceef0;
+  --color-paper-2: #e2e5e8;
+  --color-bone: #d6dadf;
+  --color-stone-200: #cbd0d6;
+  --color-stone-300: #b6bcc4;
+  --color-stone-400: #979ea7;
+  --color-stone-500: #767e88;
+  --color-stone-600: #565e68;
+  --color-charcoal: #22262c;
+  --color-ink: #0e1115;
+  --color-white: #ffffff;
+
+  --color-accent: #2340e0;
+  --color-accent-600: #1b33b8;
+  --color-accent-soft: #e1e6fc;
+  --color-label: #f2ce3a;
+
+  --color-success: #2f6b3f;
+  --color-success-soft: #e2efe5;
+  --color-warning: #8a5a12;
+  --color-warning-soft: #f6ecd8;
+  --color-danger: #a52a2a;
+  --color-danger-soft: #f7e2e0;
+  --color-info: #2c4f78;
+  --color-info-soft: #e1e9f3;
+
+  --tracking-label: 0.12em;
+  --tracking-wordmark: 0.02em;
+
+  --animate-fade-in: fade-in 220ms ease-out;
+  --animate-slide-in: slide-in 260ms cubic-bezier(0.2, 0.7, 0.2, 1);
+  --animate-rise: rise 600ms cubic-bezier(0.2, 0.7, 0.2, 1) both;
+
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  @keyframes slide-in {
+    from {
+      transform: translateX(100%);
+    }
+    to {
+      transform: none;
+    }
+  }
+  @keyframes rise {
+    from {
+      opacity: 0;
+      transform: translateY(14px);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+}
+
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+    text-rendering: optimizeLegibility;
+    scroll-padding-top: 7rem;
+  }
+  body {
+    background: var(--color-paper);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+  }
+  :focus-visible {
+    outline: 2px solid var(--color-ink);
+    outline-offset: 3px;
+  }
+  ::selection {
+    background: var(--color-bone);
+  }
+  input[type='number']::-webkit-inner-spin-button,
+  input[type='number']::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  input[type='number'] {
+    -moz-appearance: textfield;
+  }
+  dialog::backdrop {
+    background: rgb(14 17 21 / 0.45);
+  }
+  summary {
+    cursor: pointer;
+  }
+  summary::-webkit-details-marker {
+    display: none;
+  }
+}
+
+@layer components {
+  .display {
+    font-family: var(--font-display);
+    font-weight: 600;
+    letter-spacing: -0.03em;
+    line-height: 1.02;
+  }
+  .wordmark {
+    font-family: var(--font-display);
+    font-weight: 800;
+    letter-spacing: var(--tracking-wordmark);
+    text-transform: uppercase;
+  }
+  /* A shoebox label: the size run, printed in black on yellow. */
+  .size-chip {
+    display: inline-grid;
+    place-items: center;
+    min-width: 3rem;
+    height: 3rem;
+    border: 1.5px solid var(--color-ink);
+    font-family: var(--font-display);
+    font-size: 0.95rem;
+    font-weight: 600;
+    font-variant-numeric: tabular-nums;
+    transition: background-color 160ms ease, color 160ms ease;
+  }
+  .size-chip:hover,
+  .size-chip:focus-visible {
+    background: var(--color-label);
+  }
+  /* Small section labels: sentence case, never tracked capitals. */
+  .eyebrow {
+    font-size: 0.8125rem;
+    font-weight: 600;
+    letter-spacing: 0;
+  }
+  .container-page {
+    margin-inline: auto;
+    width: 100%;
+    max-width: 90rem;
+    padding-inline: 1rem;
+  }
+  @media (min-width: 640px) {
+    .container-page {
+      padding-inline: 1.5rem;
+    }
+  }
+  @media (min-width: 1024px) {
+    .container-page {
+      padding-inline: 2.5rem;
+    }
+  }
+  .tabular {
+    font-variant-numeric: tabular-nums;
+  }
+  .hairline {
+    border-color: var(--color-stone-200);
+  }
+  .prose-store p + p {
+    margin-top: 0.85rem;
+  }
+  .link-underline {
+    background-image: linear-gradient(currentColor, currentColor);
+    background-size: 0% 1px;
+    background-position: 0 100%;
+    background-repeat: no-repeat;
+    transition: background-size 240ms ease;
+  }
+  .link-underline:hover,
+  .link-underline:focus-visible {
+    background-size: 100% 1px;
+  }
+  .no-scrollbar {
+    scrollbar-width: none;
+  }
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
