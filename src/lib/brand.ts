@@ -14,8 +14,8 @@ export const BRAND = {
     'SEVSHEE — Улаанбаатарын эмэгтэйчүүдэд зориулсан даашинз, сүлжмэл, гадуур хувцас, цүнхний зохиомол бутик. Ursgal Digital-ын портфолио демо.',
   /** `.example` is a reserved domain (RFC 2606), so this can never reach a real inbox. */
   email: 'hello@sevshee.example',
-  /** The demo brand has no social Pages of its own. */
-  facebook: null as string | null,
+  /** The demo brand's Facebook Page (an Ursgal Digital demo Page; its Messenger is answered by the shop bot). */
+  facebook: 'https://www.facebook.com/profile.php?id=61596720067864' as string | null,
   instagram: null as string | null,
   /** Where the "back to portfolio" link points. */
   portfolioUrl: process.env.NEXT_PUBLIC_PORTFOLIO_URL ?? 'https://www.ursgaldigital.com/portfolio/boutique',
