@@ -43,6 +43,10 @@
   "key": "dr-green",
   "slug": "flowing-summer-green-dress",
   "kind": "catalog",
+  "focus": {
+   "x": 0.68,
+   "y": 0.5
+  },
   "title": "Flowing Summer Green Dress",
   "author": "Samantha Hurley",
   "license": "burst"
@@ -51,6 +55,10 @@
   "key": "dr-green-2",
   "slug": "model-poses-in-long-green-maxi-dress",
   "kind": "catalog",
+  "focus": {
+   "x": 0.62,
+   "y": 0.5
+  },
   "title": "Model Poses In Long Green Maxi Dress",
   "author": "Samantha Hurley",
   "license": "burst"
@@ -59,24 +67,32 @@
   "key": "dr-green-3",
   "slug": "green-summer-fashion-in-park",
   "kind": "catalog",
+  "focus": {
+   "x": 0.7,
+   "y": 0.5
+  },
   "title": "Green Summer Fashion In Park",
   "author": "Samantha Hurley",
   "license": "burst"
  },
  {
   "key": "tp-white-shirt",
-  "slug": "torso-of-a-person-in-a-white-dress-shirt-and-jeans",
+  "slug": "woman-in-a-white-shirt-in-front-of-a-brick-wall",
   "kind": "catalog",
-  "title": "Torso Of A Person In A White Dress Shirt And Jeans",
-  "author": "Farah",
+  "title": "Woman In A White Shirt In Front Of A Brick Wall",
+  "author": "Thom Bradley",
   "license": "burst"
  },
  {
   "key": "tp-white-shirt-2",
-  "slug": "photo-of-a-person-in-a-white-dress-shirt-outdoors",
+  "slug": "portrait-of-a-woman-in-a-white-shirt",
   "kind": "catalog",
-  "title": "Photo Of A Person In A White Dress Shirt Outdoors",
-  "author": "Farah",
+  "focus": {
+   "x": 0.5,
+   "y": 0.45
+  },
+  "title": "Portrait Of A Woman In A White Shirt",
+  "author": "Thom Bradley",
   "license": "burst"
  },
  {
@@ -153,26 +169,42 @@
  },
  {
   "key": "kn-cream",
-  "slug": "close-up-of-model-wearing-cream-sweater",
+  "slug": "woman-in-white-sweater-looks-into-camera-lens",
   "kind": "catalog",
-  "title": "Close Up Of Model Wearing Cream Sweater",
-  "author": "Jeremy Marasigan",
+  "focus": {
+   "x": 0.5,
+   "y": 0.55
+  },
+  "title": "Woman In White Sweater Looks Into Camera Lens",
+  "author": "Tenille K Campbell",
   "license": "burst"
  },
  {
   "key": "kn-cream-2",
-  "slug": "close-up-showing-detail-of-cream-sweater",
+  "slug": "woman-in-white-sweater-looks-into-camera-lens",
   "kind": "catalog",
-  "title": "Close Up Showing Detail Of Cream Sweater",
-  "author": "Jeremy Marasigan",
+  "focus": {
+   "x": 0.5,
+   "y": 0.8
+  },
+  "zoom": 2.4,
+  "sourceWidth": 5000,
+  "title": "Woman In White Sweater Looks Into Camera Lens",
+  "author": "Tenille K Campbell",
   "license": "burst"
  },
  {
   "key": "kn-cream-3",
-  "slug": "model-in-neutral-colors-by-window",
+  "slug": "woman-in-white-sweater-looks-into-camera-lens",
   "kind": "catalog",
-  "title": "Model In Neutral Colors By Window",
-  "author": "Jeremy Marasigan",
+  "focus": {
+   "x": 0.3,
+   "y": 0.6
+  },
+  "zoom": 1.9,
+  "sourceWidth": 5000,
+  "title": "Woman In White Sweater Looks Into Camera Lens",
+  "author": "Tenille K Campbell",
   "license": "burst"
  },
  {
@@ -233,35 +265,55 @@
  },
  {
   "key": "tr-jeans",
-  "slug": "torso-of-person-on-an-apartment-balcony-facing-camera",
+  "slug": "person-walks-away-in-blue-jeans-and-blue-shirt",
   "kind": "catalog",
-  "title": "Torso Of Person On An Apartment Balcony Facing Camera",
+  "focus": {
+   "x": 0.5,
+   "y": 0.62
+  },
+  "title": "Person Walks Away In Blue Jeans And Blue Shirt",
   "author": "Avelino Calvar Martinez",
   "license": "burst"
  },
  {
   "key": "ow-leather",
-  "slug": "model-with-leather-jacket-over-shoulders",
+  "slug": "leather-jacket-and-tea",
   "kind": "catalog",
-  "title": "Model With Leather Jacket Over Shoulders",
-  "author": "Jeremy Marasigan",
-  "license": "burst"
+  "focus": {
+   "x": 0.53,
+   "y": 0.5
+  },
+  "title": "Leather Jacket And Tea",
+  "author": "Matthew Henry",
+  "license": "cc0"
  },
  {
   "key": "ow-leather-2",
-  "slug": "model-wearing-leather-jacket-and-tan-pants",
+  "slug": "leather-jacket-and-tea",
   "kind": "catalog",
-  "title": "Model Wearing Leather Jacket And Tan Pants",
-  "author": "Jeremy Marasigan",
-  "license": "burst"
+  "focus": {
+   "x": 0.62,
+   "y": 0.32
+  },
+  "zoom": 2,
+  "sourceWidth": 5000,
+  "title": "Leather Jacket And Tea",
+  "author": "Matthew Henry",
+  "license": "cc0"
  },
  {
   "key": "ow-leather-3",
-  "slug": "close-up-leather-jacket-over-shoulders",
+  "slug": "leather-jacket-and-tea",
   "kind": "catalog",
-  "title": "Close Up Leather Jacket Over Shoulders",
-  "author": "Jeremy Marasigan",
-  "license": "burst"
+  "focus": {
+   "x": 0.44,
+   "y": 0.44
+  },
+  "zoom": 2,
+  "sourceWidth": 5000,
+  "title": "Leather Jacket And Tea",
+  "author": "Matthew Henry",
+  "license": "cc0"
  },
  {
   "key": "ow-fur",
@@ -321,9 +373,13 @@
  },
  {
   "key": "bg-black-2",
-  "slug": "black-bag-over-the-shoulder",
+  "slug": "black-tote-with-strap-options",
   "kind": "catalog",
-  "title": "Black Bag Over The Shoulder",
+  "focus": {
+   "x": 0.52,
+   "y": 0.5
+  },
+  "title": "Black Tote With Strap Options",
   "author": "Shopify Partners",
   "license": "burst"
  },
@@ -337,10 +393,14 @@
  },
  {
   "key": "bg-tan-clutch-2",
-  "slug": "brown-clutch-gently-held",
+  "slug": "light-brown-clutch",
   "kind": "catalog",
-  "title": "Brown Clutch Gently Held",
-  "author": "Sarah Pflug",
+  "focus": {
+   "x": 0.55,
+   "y": 0.5
+  },
+  "title": "Light Brown Clutch",
+  "author": "Shopify Partners",
   "license": "burst"
  },
  {
@@ -355,6 +415,12 @@
   "key": "bg-blue-tote",
   "slug": "modern-blue-handbag",
   "kind": "catalog",
+  "focus": {
+   "x": 0.6,
+   "y": 0.7
+  },
+  "zoom": 1.3,
+  "sourceWidth": 5000,
   "title": "Modern Blue Handbag",
   "author": "Sarah Pflug",
   "license": "burst"
@@ -448,11 +514,16 @@
  },
  {
   "key": "col-winter",
-  "slug": "happiness-in-the-snow-and-sunshine",
+  "slug": "cozy-woman-at-winter-market",
   "kind": "editorial",
   "aspect": 0.8,
-  "title": "Happiness In The Snow And Sunshine",
-  "author": "Shopify Photos",
+  "focus": {
+   "x": 0.62,
+   "y": 0.5
+  },
+  "sourceWidth": 5000,
+  "title": "Cozy Woman At Winter Market",
+  "author": "Sarah Pflug",
   "license": "burst"
  },
  {

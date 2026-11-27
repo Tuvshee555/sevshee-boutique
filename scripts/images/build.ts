@@ -31,6 +31,8 @@ interface ManifestEntry {
   aspect?: number
   /** Extra zoom before cropping (1 = none), e.g. 1.25 to crop tighter. */
   zoom?: number
+  /** Width of the original to download (default 2600). A tight crop (zoom) asks for more pixels. */
+  sourceWidth?: number
   title: string
   author: string
   license: 'burst' | 'cc0'
@@ -47,10 +49,12 @@ const LICENSES = {
   cc0: { name: 'Creative Commons Zero (CC0)', url: 'https://www.shopify.com/stock-photos/licenses/creative-commons' },
 }
 
-async function original(slug: string): Promise<Buffer> {
-  const file = path.join(CACHE, `${slug}.jpg`)
+const SOURCE_WIDTH = 2600
+
+async function original(slug: string, width = SOURCE_WIDTH): Promise<Buffer> {
+  const file = path.join(CACHE, width === SOURCE_WIDTH ? `${slug}.jpg` : `${slug}@${width}.jpg`)
   if (fs.existsSync(file)) return fs.readFileSync(file)
-  const url = `https://burst.shopifycdn.com/photos/${slug}.jpg?width=2600&format=pjpg&exif=0&iptc=0`
+  const url = `https://burst.shopifycdn.com/photos/${slug}.jpg?width=${width}&format=pjpg&exif=0&iptc=0`
   const res = await fetch(url, { headers: { 'User-Agent': 'manan-store-image-build/1.0' } })
   if (!res.ok) throw new Error(`${res.status} for ${url}`)
   const buf = Buffer.from(await res.arrayBuffer())
@@ -75,6 +79,9 @@ async function cropped(entry: ManifestEntry, buf: Buffer): Promise<Sharp> {
     ch = h
     cw = ch * aspect
   }
+  const widths = entry.kind === 'catalog' ? CATALOG_WIDTHS : EDITORIAL_WIDTHS
+  const largest = widths[widths.length - 1]
+  if (zoom > 1 && cw < largest * 0.85) console.warn(`! ${entry.key}: the crop is only ${Math.round(cw)}px wide, so the ${largest}px file is upscaled; raise sourceWidth`)
   if (typeof entry.focus === 'object') {
     const left = Math.round(Math.min(Math.max(entry.focus.x * w - cw / 2, 0), w - cw))
     const top = Math.round(Math.min(Math.max(entry.focus.y * h - ch / 2, 0), h - ch))
@@ -117,7 +124,7 @@ async function main() {
     if (done && !only) continue
     let buf: Buffer
     try {
-      buf = await original(entry.file ?? entry.slug)
+      buf = await original(entry.file ?? entry.slug, entry.sourceWidth)
     } catch (err) {
       if (!ensure || process.env.VERCEL) throw err
       console.warn(`! ${entry.kind}/${entry.key} not built here (${(err as Error).message}); the Vercel build makes it.`)
