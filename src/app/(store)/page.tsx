@@ -17,6 +17,14 @@ export const metadata: Metadata = {
   title: { absolute: `${BRAND.name} — ${BRAND.tagline}` },
   description: 'Даашинз, сүлжмэл, гадуур хувцас, цүнх — эмэгтэйчүүдэд зориулсан бутик. Хэмжээ, өнгө тус бүрийн үлдэгдэл бодит цагт. (Портфолио демо)',
   alternates: { canonical: '/' },
+  // Shared links (Messenger, Facebook) show this card; product pages use their own photo.
+  openGraph: {
+    type: 'website',
+    locale: 'mn_MN',
+    siteName: BRAND.name,
+    images: [{ url: '/og/home.jpg', width: 1200, height: 630, alt: `${BRAND.name} — ${BRAND.tagline}` }],
+  },
+  twitter: { card: 'summary_large_image', images: ['/og/home.jpg'] },
 }
 
 function SectionHeading({ title, href, linkLabel }: { title: string; href?: string; linkLabel?: string }) {
@@ -72,7 +80,7 @@ export default async function HomePage() {
       <section className="container-page pt-4 sm:pt-6">
         <div className="grid items-center gap-8 lg:grid-cols-[1fr_1.05fr] lg:gap-14">
           <div className="relative aspect-[4/5] overflow-hidden rounded-[32px] bg-bone sm:aspect-[5/4] lg:aspect-[4/5]">
-            <Image src={EDITORIAL.hero.src} alt={EDITORIAL.hero.alt} fill priority sizes="(min-width: 1024px) 48vw, 100vw" className="object-cover" />
+            <Image src={EDITORIAL.hero.src} alt={EDITORIAL.hero.alt} fill preload sizes="(min-width: 1024px) 48vw, 100vw" className="object-cover" />
           </div>
           <div className="pb-4 lg:pb-0">
             <h1 className="display max-w-[13ch] animate-rise text-[44px] sm:text-[64px] xl:text-[80px]">{BRAND.tagline}</h1>
@@ -188,7 +196,6 @@ export default async function HomePage() {
         <section className="container-page pt-24">
           <SectionHeading title="Их захиалагддаг" href="/shop" />
           <ProductRow products={bestsellers} />
-          <p className="mt-6 text-[13px] text-stone-600">Демо: эрэмбэ нь сангийн жишээ захиалгад тулгуурласан.</p>
         </section>
       )}
 
@@ -243,10 +250,6 @@ export default async function HomePage() {
             <Link href="/about" className="link-underline mt-8 inline-flex items-center gap-1.5 text-[14px] font-semibold">
               Бутикийн тухай <ArrowRight className="h-3.5 w-3.5" />
             </Link>
-            <p className="mt-10 border-t border-stone-200 pt-5 text-[13px] leading-relaxed text-stone-600">
-              Анхааруулга: {BRAND.name} бол {BRAND.agencyName}-ын бүтээсэн зохиомол бутик. Бараа, үнэ, үлдэгдэл жишээ өгөгдөл бөгөөд зурагнууд
-              лицензтэй стокийн гэрэл зураг.
-            </p>
           </div>
         </div>
       </section>
