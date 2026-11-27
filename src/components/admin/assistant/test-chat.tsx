@@ -70,7 +70,7 @@ export function TestChat({ initial }: { initial: ChatView | null }) {
           <label htmlFor="test-input" className="sr-only">
             Туршилтын асуулт
           </label>
-          <input id="test-input" className={ainput} value={input} maxLength={1200} onChange={(e) => setInput(e.target.value)} placeholder="Жишээ: har hoodie L bga yu" />
+          <input id="test-input" className={ainput} value={input} maxLength={1200} onChange={(e) => setInput(e.target.value)} placeholder="Жишээ: har daashinz M bga yu" />
           <AButton type="submit" disabled={pending || !input.trim()} aria-label="Илгээх">
             <ArrowUp className="h-4 w-4" />
           </AButton>
